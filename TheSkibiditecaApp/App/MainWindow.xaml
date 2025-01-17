@@ -9,5 +9,17 @@
     Width="800"
     Height="450"
     mc:Ignorable="d">
-    <Grid />
+    <Grid>
+        <Label
+            Width="394"
+            Height="97"
+            Margin="144,196,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Content="EN PAPULANDIA HAY UN PAPU"
+            FontSize="24"
+            FontWeight="Bold" />
+    </Grid>
 </Window>
