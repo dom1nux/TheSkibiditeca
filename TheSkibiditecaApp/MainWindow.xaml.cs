@@ -8,17 +8,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TheSkibiditecaApp.Windows;
 
-namespace TheSkibiditecaApp
-{
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
-    {
-        public MainWindow()
-        {
+namespace TheSkibiditecaApp {
+    public partial class MainWindow : Window {
+        public MainWindow() {
             InitializeComponent();
+            this.Content = new Login().Content;
+        }
+
+        private void Window_Closed(object sender, EventArgs e) {
+            Application.Current.Shutdown();
         }
     }
 }
