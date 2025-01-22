@@ -2,13 +2,11 @@
 using System.Data;
 using System.Windows;
 
-namespace TheSkibiditecaApp
-{
+namespace TheSkibiditecaApp {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
-    public partial class App : Application
-    {
+    public partial class App : Application {
     }
 
 }
