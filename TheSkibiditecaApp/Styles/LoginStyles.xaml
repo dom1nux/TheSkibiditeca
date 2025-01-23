@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="BT_LoginStyle" TargetType="Button">
+        <Setter Property="FontFamily" Value="Consolas" />
+    </Style>
+
+    <Style x:Key="TB_LoginStyle" TargetType="TextBox">
+        <Setter Property="Background" Value="{x:Null}" />
+        <Setter Property="BorderBrush" Value="Black" />
+        <Setter Property="BorderThickness" Value="0,0,0,1" />
+        <Setter Property="FontFamily" Value="Consolas" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+
+    <Style x:Key="PB_LoginStyle" TargetType="PasswordBox">
+        <Setter Property="Background" Value="{x:Null}" />
+        <Setter Property="BorderBrush" Value="Black" />
+        <Setter Property="BorderThickness" Value="0,0,0,1" />
+        <Setter Property="FontFamily" Value="Consolas" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+</ResourceDictionary>

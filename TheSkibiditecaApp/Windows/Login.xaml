@@ -74,13 +74,15 @@
                     Margin="70,150,55,0"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Top"
+                    Style="{StaticResource TB_LoginStyle}"
                     Text="Usuario"
                     TextWrapping="Wrap" />
                 <PasswordBox
                     Width="200"
                     Margin="70,250,70,0"
                     HorizontalAlignment="Center"
-                    VerticalAlignment="Top" />
+                    VerticalAlignment="Top"
+                    Style="{StaticResource PB_LoginStyle}" />
                 <Button
                     Margin="0,0,0,100"
                     Padding="20,5,20,5"
@@ -88,7 +90,8 @@
                     VerticalAlignment="Bottom"
                     VerticalContentAlignment="Center"
                     Content="Iniciar sesión"
-                    FontSize="20">
+                    FontSize="20"
+                    Style="{StaticResource BT_LoginStyle}">
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="10" />

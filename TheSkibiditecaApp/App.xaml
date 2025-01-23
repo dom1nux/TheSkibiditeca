@@ -5,26 +5,6 @@
     xmlns:local="clr-namespace:TheSkibiditecaApp"
     StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <Style TargetType="Button">
-            <Setter Property="FontFamily" Value="Consolas" />
-        </Style>
-
-        <Style TargetType="TextBox">
-            <Setter Property="Background" Value="{x:Null}" />
-            <Setter Property="BorderBrush" Value="Black" />
-            <Setter Property="BorderThickness" Value="0,0,0,1" />
-            <Setter Property="FontFamily" Value="Consolas" />
-            <Setter Property="FontSize" Value="20" />
-            <Setter Property="Foreground" Value="White" />
-        </Style>
-
-        <Style TargetType="PasswordBox">
-            <Setter Property="Background" Value="{x:Null}" />
-            <Setter Property="BorderBrush" Value="Black" />
-            <Setter Property="BorderThickness" Value="0,0,0,1" />
-            <Setter Property="FontFamily" Value="Consolas" />
-            <Setter Property="FontSize" Value="20" />
-            <Setter Property="Foreground" Value="White" />
-        </Style>
+        <ResourceDictionary Source="/Styles/LoginStyles.xaml" />
     </Application.Resources>
 </Application>
