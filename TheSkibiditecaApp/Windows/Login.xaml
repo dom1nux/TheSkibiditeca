@@ -47,11 +47,14 @@
         <!--  Login  -->
         <Image
             x:Name="img_profile"
-            Margin="0,100,0,500"
+            Width="150"
+            Height="150"
+            Margin="0,80,0,0"
             HorizontalAlignment="Center"
-            VerticalAlignment="Center"
+            VerticalAlignment="Top"
             Panel.ZIndex="1"
-            ScrollViewer.CanContentScroll="True">
+            ScrollViewer.CanContentScroll="True"
+            Source="/Images/pedrocraft.png">
             <Image.OpacityMask>
                 <RadialGradientBrush>
                     <GradientStop Offset="1" Color="White" />
@@ -60,7 +63,7 @@
             </Image.OpacityMask>
         </Image>
         <Border
-            Margin="450,160,450,100"
+            Margin="480,160,480,100"
             BorderBrush="Black"
             BorderThickness="1">
             <Border.Effect>
