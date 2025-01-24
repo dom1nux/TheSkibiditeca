@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,15 @@ namespace TheSkibiditecaApp.Windows {
     public partial class Login : Window {
         public Login() {
             InitializeComponent();
+            RandomProfile();    
+        }
+
+        public void RandomProfile() {
+            string[] images = { "pedrocraft.png", "girasol.png", "chad.png", "xina.png", "peru.png" };
+            Random rnd = new();
+            Uri pathIm = new($"../Images/" + images[rnd.Next(images.Length)], UriKind.Relative);
+            BitmapImage imgProf = new(pathIm);
+            img_profile.Source = imgProf;
         }
     }
 }
