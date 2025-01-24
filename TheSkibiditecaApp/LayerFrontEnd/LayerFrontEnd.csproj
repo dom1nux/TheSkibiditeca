@@ -13,6 +13,7 @@
     <None Remove="Images\borrow.png" />
     <None Remove="Images\chad.png" />
     <None Remove="Images\girasol.png" />
+    <None Remove="Images\pedrocraft.png" />
     <None Remove="Images\peru.png" />
     <None Remove="Images\plus.png" />
     <None Remove="Images\xina.png" />

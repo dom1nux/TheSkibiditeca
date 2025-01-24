@@ -17,7 +17,7 @@ namespace TheSkibiditecaApp.Windows {
     /// <summary>
     /// Lógica de interacción para Login.xaml
     /// </summary>
-    public partial class Login : Window {
+    public partial class Login : Page {
         public Window parentWindow;
         public Login(Window parent) {
             InitializeComponent();

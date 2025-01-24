@@ -16,7 +16,7 @@ namespace TheSkibiditecaApp.Windows {
     /// <summary>
     /// Lógica de interacción para BookManager.xaml
     /// </summary>
-    public partial class BookManager : Window {
+    public partial class BookManager : Page {
         public BookManager() {
             InitializeComponent();
         }
