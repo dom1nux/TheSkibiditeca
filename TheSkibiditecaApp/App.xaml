@@ -5,6 +5,12 @@
     xmlns:local="clr-namespace:TheSkibiditecaApp"
     StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <ResourceDictionary Source="/Styles/LoginStyles.xaml" />
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/LoginStyles.xaml" />
+                <ResourceDictionary Source="/Styles/GlobalStyles.xaml" />
+                <ResourceDictionary Source="/Styles/BookManStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
