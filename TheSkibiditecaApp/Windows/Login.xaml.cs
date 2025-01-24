@@ -18,9 +18,11 @@ namespace TheSkibiditecaApp.Windows {
     /// Lógica de interacción para Login.xaml
     /// </summary>
     public partial class Login : Window {
-        public Login() {
+        public Window parentWindow;
+        public Login(Window parent) {
             InitializeComponent();
-            RandomProfile();    
+            RandomProfile();
+            this.parentWindow = parent;
         }
 
         public void RandomProfile() {
@@ -29,6 +31,11 @@ namespace TheSkibiditecaApp.Windows {
             Uri pathIm = new($"../Images/" + images[rnd.Next(images.Length)], UriKind.Relative);
             BitmapImage imgProf = new(pathIm);
             img_profile.Source = imgProf;
+        }
+
+        private void but_login_Click(object sender, RoutedEventArgs e) {
+            parentWindow.Content = new BookManager().Content;
+            parentWindow.Title = "Administrador";
         }
     }
 }

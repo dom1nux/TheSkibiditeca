@@ -14,7 +14,8 @@ namespace TheSkibiditecaApp {
     public partial class MainWindow : Window {
         public MainWindow() {
             InitializeComponent();
-            this.Content = new Login().Content;
+            this.Content = new Login(this).Content;
+            this.Title = "Iniciar Sesión";
         }
 
         private void Window_Closed(object sender, EventArgs e) {

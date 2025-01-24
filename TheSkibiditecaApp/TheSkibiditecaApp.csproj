@@ -9,13 +9,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\book.png" />
+    <None Remove="Images\borrow.png" />
     <None Remove="Images\chad.png" />
     <None Remove="Images\girasol.png" />
     <None Remove="Images\peru.png" />
+    <None Remove="Images\plus.png" />
     <None Remove="Images\xina.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\book.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\borrow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\chad.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -26,6 +35,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\peru.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\plus.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\xina.png">
