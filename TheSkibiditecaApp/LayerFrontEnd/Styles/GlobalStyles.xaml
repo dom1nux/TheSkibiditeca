@@ -5,4 +5,38 @@
         <Setter Property="FontSize" Value="20" />
         <Setter Property="Foreground" Value="White" />
     </Style>
+
+    <Style x:Key="TXT_Header1" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Consolas" />
+        <Setter Property="FontSize" Value="30" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Background" Value="#FFD496FF" />
+        <Setter Property="Padding" Value="30,20,80,20" />
+    </Style>
+
+    <Style x:Key="TXT_Header2" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="Consolas" />
+        <Setter Property="FontSize" Value="25" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="TextDecorations">
+            <Setter.Value>
+                <TextDecorationCollection>
+                    <TextDecoration
+                        Location="Underline"
+                        PenOffset="2"
+                        PenThicknessUnit="FontRecommended">
+                        <TextDecoration.Pen>
+                            <Pen Brush="White" Thickness="1" />
+                        </TextDecoration.Pen>
+                    </TextDecoration>
+                </TextDecorationCollection>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Padding" Value="60,20,80,20" />
+    </Style>
 </ResourceDictionary>

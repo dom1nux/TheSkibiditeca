@@ -14,12 +14,17 @@ namespace TheSkibiditecaApp {
     public partial class MainWindow : Window {
         public MainWindow() {
             InitializeComponent();
-            this.Content = new Login(this).Content;
-            this.Title = "Iniciar Sesión";
+            
         }
 
         private void Window_Closed(object sender, EventArgs e) {
             Application.Current.Shutdown();
+        }
+
+        private void Window_Activated(object sender, EventArgs e) {
+            this.Title = "Iniciar Sesión";
+            Uri path = new(@"./Pages/Login.xaml", UriKind.Relative);
+            fra_main.Source = path;
         }
     }
 }

@@ -8,6 +8,8 @@
     Title="MainWindow"
     Width="1366"
     Height="768"
-    mc:Ignorable="d" Closed="Window_Closed">
-    <Grid Name="mgrid" />
+    Activated="Window_Activated"
+    Closed="Window_Closed"
+    mc:Ignorable="d">
+    <Frame Name="fra_main" NavigationUIVisibility="Hidden" />
 </Window>

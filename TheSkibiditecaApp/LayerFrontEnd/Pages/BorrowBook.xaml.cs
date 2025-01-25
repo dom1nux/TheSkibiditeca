@@ -12,18 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace TheSkibiditecaApp.Windows {
-    /// <summary>
-    /// Lógica de interacción para BookManager.xaml
-    /// </summary>
-    public partial class BookManager : Page {
-        public BookManager() {
+namespace TheSkibiditecaApp.Windows{
+    public partial class BorrowBook : Page {
+        public BorrowBook() { 
             InitializeComponent();
-        }
-
-        private void but_borrow_Click(object sender, RoutedEventArgs e) {
-            Uri path = new(@"./BorrowBook.xaml", UriKind.Relative);
-            fra_actPage.Source = path;
         }
     }
 }
