@@ -7,8 +7,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
     Title="BorrowBook"
-    MinWidth="1016"
-    MinHeight="719"
+    MinWidth="600"
+    MinHeight="500"
+    d:DesignHeight="768"
+    d:DesignWidth="1016"
     mc:Ignorable="d">
     <Grid>
         <!--  Background cuando  -->

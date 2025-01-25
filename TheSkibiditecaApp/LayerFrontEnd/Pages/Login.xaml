@@ -6,8 +6,8 @@
     xmlns:local="clr-namespace:TheSkibiditecaApp.Windows"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Login"
-    MinWidth="1366"
-    MinHeight="768"
+    d:DesignHeight="768"
+    d:DesignWidth="1366"
     mc:Ignorable="d">
 
     <Grid>
