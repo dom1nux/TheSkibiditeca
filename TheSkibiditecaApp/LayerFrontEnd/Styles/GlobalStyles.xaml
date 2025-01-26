@@ -16,6 +16,27 @@
         <Setter Property="Padding" Value="30,20,80,20" />
     </Style>
 
+    <Style x:Key="BT_Back" TargetType="Button">
+        <Setter Property="Background" Value="#FFD496FF" />
+        <Setter Property="FontFamily" Value="Consolas" />
+        <Setter Property="FontSize" Value="40" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Padding="15,0,15,0" Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="BorderThickness" Value="0" />
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#FF8837D4" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
     <Style x:Key="TXT_Header2" TargetType="TextBlock">
         <Setter Property="FontFamily" Value="Consolas" />
         <Setter Property="FontSize" Value="25" />

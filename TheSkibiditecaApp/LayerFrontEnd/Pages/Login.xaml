@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:TheSkibiditecaApp.Windows"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uc="clr-namespace:LayerFrontEnd.Controls.Backgrounds"
     Title="Login"
     d:DesignHeight="768"
     d:DesignWidth="1366"
@@ -12,38 +13,7 @@
 
     <Grid>
         <!--  El fondo pes  -->
-        <Canvas>
-            <Canvas.Background>
-                <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
-                    <LinearGradientBrush.RelativeTransform>
-                        <TransformGroup>
-                            <ScaleTransform CenterX="0.5" CenterY="0.5" />
-                            <SkewTransform CenterX="0.5" CenterY="0.5" />
-                            <RotateTransform Angle="-198.435" CenterX="0.5" CenterY="0.5" />
-                            <TranslateTransform />
-                        </TransformGroup>
-                    </LinearGradientBrush.RelativeTransform>
-                    <GradientStop Offset="1" Color="#FFD599F3" />
-                    <GradientStop Offset="0" Color="#FF1600B5" />
-                </LinearGradientBrush>
-            </Canvas.Background>
-        </Canvas>
-        <Canvas>
-            <Canvas.Background>
-                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                    <LinearGradientBrush.RelativeTransform>
-                        <TransformGroup>
-                            <ScaleTransform CenterX="0.5" CenterY="0.5" />
-                            <SkewTransform CenterX="0.5" CenterY="0.5" />
-                            <RotateTransform Angle="-43.531" CenterX="0.5" CenterY="0.5" />
-                            <TranslateTransform />
-                        </TransformGroup>
-                    </LinearGradientBrush.RelativeTransform>
-                    <GradientStop Offset="0.067" Color="#00000000" />
-                    <GradientStop Offset="1" Color="#FF0083B8" />
-                </LinearGradientBrush>
-            </Canvas.Background>
-        </Canvas>
+        <uc:BCK_Login />
         <!--  Login  -->
         <Image
             x:Name="img_profile"
