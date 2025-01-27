@@ -3,27 +3,45 @@ USE TheSkibiditeca;
 GO
 
 ------------------------------------------------
+-- TABLA: Usuario
+------------------------------------------------
+CREATE TABLE [User] (
+	UserID INT PRIMARY KEY IDENTITY,
+	Username NVARCHAR(50) NOT NULL,
+	PasswordHash VARBINARY(64) NOT NULL,
+	[Role] NVARCHAR(15) NOT NULL DEFAULT 'Estudiante'
+		CHECK (Role IN ('Administrador', 'Bibliotecario', 'Estudiante')) 
+);
+GO
+
+------------------------------------------------
 -- TABLA: Bibliotecario
 ------------------------------------------------
 CREATE TABLE Librarian (
     LibrarianID INT PRIMARY KEY IDENTITY,
+	UserID INT NOT NULL,
     FirstName NVARCHAR(100) NOT NULL,
     LastName NVARCHAR(100) NOT NULL,
-    Address NVARCHAR(255) NOT NULL,
+    [Address] NVARCHAR(255) NOT NULL,
     PhoneNumber NVARCHAR(15) NOT NULL,
     [Shift] NVARCHAR(6) NOT NULL
         CHECK ([Shift] IN ('Mañana', 'Tarde', 'Noche')),
     EnrollmentDate DATE NOT NULL,
     [Status] NVARCHAR(10) NOT NULL
-        CHECK ([Status] IN ('Activo', 'Retirado'))
+        CHECK ([Status] IN ('Activo', 'Retirado')),
+	CONSTRAINT FK_User_Librarian
+        FOREIGN KEY (UserID)
+        REFERENCES [User](UserID)
+        ON DELETE CASCADE
 );
 GO
 
 ------------------------------------------------
--- TABLA: Usuario
+-- TABLA: Estudiante
 ------------------------------------------------
-CREATE TABLE [User] (
-    UserID INT PRIMARY KEY IDENTITY,
+CREATE TABLE Student (
+    StudentID INT PRIMARY KEY IDENTITY,
+	UserID INT NOT NULL,
     FirstName NVARCHAR(100) NOT NULL,
     LastName NVARCHAR(100) NOT NULL,
     Gender CHAR(1) NOT NULL
@@ -31,11 +49,10 @@ CREATE TABLE [User] (
     Major NVARCHAR(50) NULL,
     Semester TINYINT NULL
         CHECK (Semester BETWEEN 1 AND 10),
-    RegisteredBy INT NULL,  -- FK referencing Librarian
-    CONSTRAINT FK_Users_Librarian
-        FOREIGN KEY (RegisteredBy)
-        REFERENCES Librarian(LibrarianID)
-        ON DELETE SET NULL
+	CONSTRAINT FK_User_Student
+        FOREIGN KEY (UserID)
+        REFERENCES [User](UserID)
+        ON DELETE CASCADE
 );
 GO
 
@@ -78,6 +95,7 @@ GO
 CREATE TABLE Book (
     BookID INT PRIMARY KEY IDENTITY,
     Title NVARCHAR(255) NOT NULL,
+	Cover VARBINARY(MAX) NULL,
     PublicationYear INT NOT NULL
         CHECK (PublicationYear > 0),
     GenreID INT NULL,
@@ -98,17 +116,17 @@ CREATE TABLE Book (
 GO
 
 ------------------------------------------------
--- TABLA: ListaLibro
+-- TABLA: Escrito
 ------------------------------------------------
-CREATE TABLE BookList (
+CREATE TABLE Authored (
     BookID INT NOT NULL,
     AuthorID INT NOT NULL,
     PRIMARY KEY (BookID, AuthorID),
-    CONSTRAINT FK_BookList_Book
+    CONSTRAINT FK_Authored_Book
         FOREIGN KEY (BookID)
         REFERENCES Book(BookID)
         ON DELETE CASCADE,
-    CONSTRAINT FK_BookList_Author
+    CONSTRAINT FK_Authored_Author
         FOREIGN KEY (AuthorID)
         REFERENCES Author(AuthorID)
         ON DELETE CASCADE
@@ -120,22 +138,20 @@ GO
 ------------------------------------------------
 CREATE TABLE Borrow (
     BorrowID INT PRIMARY KEY IDENTITY,
-    UserID INT NOT NULL,
+    StudentID INT NOT NULL,
     BookID INT NOT NULL,
     BorrowDate DATE NOT NULL,
-    LibrarianID INT NULL,
+	BorrowStatus NVARCHAR(12) NOT NULL DEFAULT ('Por Devolver'),
     CONSTRAINT FK_Borrow_User
-        FOREIGN KEY (UserID)
-        REFERENCES [User](UserID)
+        FOREIGN KEY (StudentID)
+        REFERENCES Student(StudentID)
         ON DELETE CASCADE,
     CONSTRAINT FK_Borrow_Book
         FOREIGN KEY (BookID)
         REFERENCES Book(BookID)
         ON DELETE CASCADE,
-    CONSTRAINT FK_Borrow_Librarian
-        FOREIGN KEY (LibrarianID)
-        REFERENCES Librarian(LibrarianID)
-        ON DELETE SET NULL
+	CONSTRAINT CK_Borrow_Status
+		CHECK (BorrowStatus IN ('Por Devolver', 'Devuelto'))
 );
 GO
 
@@ -145,26 +161,25 @@ GO
 CREATE TABLE [Return] (
     ReturnID INT PRIMARY KEY IDENTITY,
     BorrowID INT NOT NULL,
-    ReturnDate DATE NOT NULL,
-    LibrarianID INT NOT NULL,
+	BookState NVARCHAR(50) NOT NULL,
+	Observation TEXT NULL,
     CONSTRAINT FK_Return_Borrow
         FOREIGN KEY (BorrowID)
         REFERENCES Borrow(BorrowID)
         ON DELETE CASCADE,
-    CONSTRAINT FK_Return_Librarian
-        FOREIGN KEY (LibrarianID)
-        REFERENCES Librarian(LibrarianID)
+	CONSTRAINT CK_Book_State
+        CHECK(BookState IN ('Bueno', 'Regular', 'Malo')),
 );
 GO
 
--- Agregamos campo de "estado" a la tabla libro
-ALTER TABLE Book
-ADD [Status] NVARCHAR(10) NOT NULL
-    CONSTRAINT DF_Book_Status DEFAULT ('Available');
-GO
-
--- Agregamos verificacion al campo "estado" de la tabla libro
-ALTER TABLE Book
-ADD CONSTRAINT CK_Book_Status
-CHECK ([Status] IN ('Available', 'Borrowed'));
+------------------------------------------------
+-- TABLE: RegistroOperaciones
+------------------------------------------------
+CREATE TABLE OperationLog (
+    LogID INT IDENTITY PRIMARY KEY,
+    TableName NVARCHAR(50),
+    Operation NVARCHAR(50),
+    ChangeInfo NVARCHAR(255),
+    CreatedAt DATETIME DEFAULT GETDATE()
+);
 GO
