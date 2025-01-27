@@ -12,17 +12,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TheSkibiditecaApp;
+using TheSkibiditecaApp.Windows;
 
-namespace LayerFrontEnd.Pages
-{
+namespace LayerFrontEnd.Pages {
     /// <summary>
     /// Lógica de interacción para BorrowList.xaml
     /// </summary>
-    public partial class BorrowList : Page
-    {
-        public BorrowList()
-        {
+    public partial class BorrowList : Page {
+        public BorrowList() {
             InitializeComponent();
+        }
+
+        private void bt_newBorrow_Click(object sender, RoutedEventArgs e) {
+            NavigationService.Navigate(new BorrowBook());
         }
     }
 }

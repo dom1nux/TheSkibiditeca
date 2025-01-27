@@ -19,7 +19,11 @@
         <!--  header  -->
         <StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Button Content="&lt;" Style="{StaticResource BT_Back}" />
+                <Button
+                    x:Name="bt_back"
+                    Click="bt_back_Click"
+                    Content="&lt;"
+                    Style="{StaticResource BT_Back}" />
                 <TextBlock Style="{StaticResource TXT_Header1}" Text="Nuevo Prestamo" />
             </StackPanel>
             <TextBlock Style="{StaticResource TXT_Header2}" Text="Préstamo:" />
@@ -48,7 +52,7 @@
                     <TextBox x:Name="tb_idStudent" Style="{StaticResource TB_Register}" />
                 </StackPanel>
             </Border>
-            <Button Content="Confirmar" Style="{StaticResource BT_Confirm}">
+            <Button Content="Confirmar" Style="{StaticResource BT_BlankNoBack}">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10" />
