@@ -22,7 +22,7 @@ namespace TheSkibiditecaApp.Windows {
         }
 
         private void but_borrow_Click(object sender, RoutedEventArgs e) {
-            Uri path = new(@"./BorrowBook.xaml", UriKind.Relative);
+            Uri path = new(@"./BorrowList.xaml", UriKind.Relative);
             fra_actPage.Source = path;
         }
     }

@@ -5,10 +5,43 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:LayerFrontEnd.Pages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uc="clr-namespace:LayerFrontEnd.Controls.Backgrounds"
     Title="BorrowList"
     d:DesignHeight="768"
     d:DesignWidth="1016"
     mc:Ignorable="d">
 
-    <Grid />
+    <Grid>
+        <uc:BCK_Manager />
+        <!--  Header  -->
+        <TextBlock Style="{StaticResource TXT_Header1}" Text="Préstamos" />
+        <Button
+            x:Name="bt_newBorrow"
+            Width="350"
+            Height="80"
+            Margin="0,10,10,0"
+            Padding="50,15,50,15"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Click="bt_newBorrow_Click"
+            Style="{StaticResource BT_BlankNoBack}">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="30" />
+                </Style>
+            </Button.Resources>
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <Image
+                        Margin="0,0,20,0"
+                        Source="/Images/plus.png"
+                        Stretch="Uniform" />
+                    <Label
+                        VerticalAlignment="Center"
+                        Content="Nuevo préstamo"
+                        FontSize="20" />
+                </StackPanel>
+            </Button.Content>
+        </Button>
+    </Grid>
 </Page>

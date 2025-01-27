@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LayerFrontEnd.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,10 @@ namespace TheSkibiditecaApp.Windows{
     public partial class BorrowBook : Page {
         public BorrowBook() { 
             InitializeComponent();
+        }
+
+        private void bt_back_Click(object sender, RoutedEventArgs e) {
+            NavigationService.Navigate(new BorrowList());
         }
     }
 }
