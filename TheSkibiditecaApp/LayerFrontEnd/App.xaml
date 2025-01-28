@@ -10,7 +10,7 @@
                 <ResourceDictionary Source="/Styles/LoginStyles.xaml" />
                 <ResourceDictionary Source="/Styles/GlobalStyles.xaml" />
                 <ResourceDictionary Source="/Styles/BookManStyles.xaml" />
-                <ResourceDictionary Source="/Styles/BookStyles.xaml" />
+                <ResourceDictionary Source="/Styles/RegisterPageStyles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

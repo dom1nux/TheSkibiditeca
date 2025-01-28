@@ -33,4 +33,9 @@
         <Setter Property="Margin" Value="60,0,40,0" />
         <Setter Property="Padding" Value="30,20,0,20" />
     </Style>
+
+    <Style x:Key="DG_DataInfo" TargetType="DataGrid">
+        <Setter Property="Background" Value="{x:Null}" />
+        <Setter Property="BorderThickness" Value="0" />
+    </Style>
 </ResourceDictionary>

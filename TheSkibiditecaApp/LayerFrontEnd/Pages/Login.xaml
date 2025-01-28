@@ -72,13 +72,7 @@
                     Click="but_login_Click"
                     Content="Iniciar sesión"
                     FontSize="20"
-                    Style="{StaticResource BT_LoginStyle}">
-                    <Button.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="10" />
-                        </Style>
-                    </Button.Resources>
-                </Button>
+                    Style="{StaticResource BT_LoginStyle}" />
             </Grid>
         </Border>
     </Grid>

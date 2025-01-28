@@ -2,6 +2,11 @@
     <!--  Estos estilos solo se aplican a la ventana Login.xaml  -->
     <Style x:Key="BT_LoginStyle" TargetType="Button">
         <Setter Property="FontFamily" Value="Consolas" />
+        <Style.Resources>
+            <Style TargetType="Border">
+                <Setter Property="CornerRadius" Value="10" />
+            </Style>
+        </Style.Resources>
     </Style>
 
     <Style x:Key="TB_LoginStyle" TargetType="TextBox">

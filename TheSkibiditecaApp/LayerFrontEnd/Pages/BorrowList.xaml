@@ -25,11 +25,6 @@
             VerticalAlignment="Top"
             Click="bt_newBorrow_Click"
             Style="{StaticResource BT_BlankNoBack}">
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="30" />
-                </Style>
-            </Button.Resources>
             <Button.Content>
                 <StackPanel Orientation="Horizontal">
                     <Image
