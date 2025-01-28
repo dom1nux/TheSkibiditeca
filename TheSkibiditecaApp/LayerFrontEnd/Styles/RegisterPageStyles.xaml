@@ -2,7 +2,6 @@
     <!--  Recursos BookStyles  -->
     <Style x:Key="TB_Register" TargetType="TextBox">
         <Setter Property="Background" Value="{x:Null}" />
-        <Setter Property="Margin" Value="20,0,0,0" />
         <Setter Property="Width" Value="250" />
         <Setter Property="FontFamily" Value="Microsoft JhengHei UI" />
         <Setter Property="FontSize" Value="15" />
@@ -12,11 +11,16 @@
 
     <Style x:Key="DP_DateReg" TargetType="DatePicker">
         <Setter Property="Background" Value="{x:Null}" />
-        <Setter Property="Margin" Value="20,0,0,0" />
         <Setter Property="Width" Value="250" />
         <Setter Property="FontFamily" Value="Microsoft JhengHei UI" />
+        <Setter Property="Foreground" Value="White" />
         <Setter Property="FontSize" Value="15" />
-        <Setter Property="BorderThickness" Value="0,0,0,0" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Style.Resources>
+            <Style TargetType="DatePickerTextBox">
+                <Setter Property="Background" Value="{x:Null}" />
+            </Style>
+        </Style.Resources>
     </Style>
 
     <Style x:Key="TXT_Info" TargetType="TextBlock">
@@ -30,8 +34,8 @@
     <Style x:Key="BOR_ContBorder" TargetType="Border">
         <Setter Property="Background" Value="#66000000" />
         <Setter Property="CornerRadius" Value="10" />
-        <Setter Property="Margin" Value="60,0,40,0" />
-        <Setter Property="Padding" Value="40,30,40,30" />
+        <Setter Property="Margin" Value="60,0,60,0" />
+        <Setter Property="Padding" Value="50,30,50,30" />
     </Style>
 
     <Style x:Key="DG_DataInfo" TargetType="DataGrid">

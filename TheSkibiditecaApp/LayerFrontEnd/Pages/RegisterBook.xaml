@@ -1,0 +1,144 @@
+﻿<Page
+    x:Class="LayerFrontEnd.Pages.RegisterBook"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:LayerFrontEnd.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:uc="clr-namespace:LayerFrontEnd.Controls.Backgrounds"
+    Title="RegisterBook"
+    d:DesignHeight="768"
+    d:DesignWidth="1016"
+    mc:Ignorable="d">
+
+    <Grid>
+        <uc:BCK_Manager />
+        <StackPanel>
+            <TextBlock Style="{StaticResource TXT_Header1}" Text="Registrar libro" />
+            <TextBlock Style="{StaticResource TXT_Header2}" Text="Libro:" />
+            <Border Style="{StaticResource BOR_ContBorder}">
+                <StackPanel Margin="0,0,150,0">
+                    <DockPanel>
+                        <TextBlock Style="{StaticResource TXT_Info}" Text="Título del libro" />
+                        <TextBox
+                            x:Name="tb_idBook"
+                            HorizontalAlignment="Right"
+                            Style="{StaticResource TB_Register}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
+                        <TextBlock Style="{StaticResource TXT_Info}" Text="Idioma" />
+                        <TextBox
+                            x:Name="tb_titleBook"
+                            HorizontalAlignment="Right"
+                            Style="{StaticResource TB_Register}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
+                        <TextBlock Style="{StaticResource TXT_Info}" Text="Género" />
+                        <TextBox
+                            x:Name="tb_genre"
+                            HorizontalAlignment="Right"
+                            Style="{StaticResource TB_Register}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
+                        <TextBlock Style="{StaticResource TXT_Info}" Text="Año de publicación" />
+                        <TextBox
+                            x:Name="tb_yearBook"
+                            HorizontalAlignment="Right"
+                            Style="{StaticResource TB_Register}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
+                        <TextBlock Style="{StaticResource TXT_Info}" Text="ISBN" />
+                        <TextBox
+                            x:Name="tb_yearISBN"
+                            HorizontalAlignment="Right"
+                            Style="{StaticResource TB_Register}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
+                        <TextBlock Style="{StaticResource TXT_Info}" Text="Cantidad de páginas" />
+                        <TextBox
+                            x:Name="tb_pages"
+                            HorizontalAlignment="Right"
+                            Style="{StaticResource TB_Register}" />
+                    </DockPanel>
+                </StackPanel>
+            </Border>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <TextBlock Style="{StaticResource TXT_Header2}" Text="Autor" />
+                    <Border Style="{StaticResource BOR_ContBorder}">
+                        <StackPanel>
+                            <DockPanel HorizontalAlignment="Stretch">
+                                <TextBlock Style="{StaticResource TXT_Info}" Text="Nombre" />
+                                <TextBox
+                                    x:Name="tb_authorName"
+                                    Width="150"
+                                    HorizontalAlignment="Right"
+                                    Style="{StaticResource TB_Register}" />
+                            </DockPanel>
+                            <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
+                                <TextBlock Style="{StaticResource TXT_Info}" Text="Apellidos" />
+                                <TextBox
+                                    x:Name="tb_authorLastName"
+                                    Width="150"
+                                    HorizontalAlignment="Right"
+                                    Style="{StaticResource TB_Register}" />
+                            </DockPanel>
+                            <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
+                                <TextBlock Style="{StaticResource TXT_Info}" Text="Nacionalidad" />
+                                <TextBox
+                                    x:Name="tb_authorLocation"
+                                    Width="150"
+                                    HorizontalAlignment="Right"
+                                    Style="{StaticResource TB_Register}" />
+                            </DockPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBlock Style="{StaticResource TXT_Header2}" Text="Editorial" />
+                    <Border Style="{StaticResource BOR_ContBorder}">
+                        <StackPanel>
+                            <DockPanel HorizontalAlignment="Stretch">
+                                <TextBlock Style="{StaticResource TXT_Info}" Text="Nombre" />
+                                <TextBox
+                                    x:Name="tb_editName"
+                                    Width="150"
+                                    HorizontalAlignment="Right"
+                                    Style="{StaticResource TB_Register}" />
+                            </DockPanel>
+                            <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
+                                <TextBlock Style="{StaticResource TXT_Info}" Text="Dirección" />
+                                <TextBox
+                                    x:Name="tb_editAdress"
+                                    Width="150"
+                                    HorizontalAlignment="Right"
+                                    Style="{StaticResource TB_Register}" />
+                            </DockPanel>
+                            <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
+                                <TextBlock Style="{StaticResource TXT_Info}" Text="Teléfono" />
+                                <TextBox
+                                    x:Name="tb_editPhone"
+                                    Width="150"
+                                    HorizontalAlignment="Right"
+                                    Style="{StaticResource TB_Register}" />
+                            </DockPanel>
+                            <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
+                                <TextBlock Style="{StaticResource TXT_Info}" Text="Email" />
+                                <TextBox
+                                    x:Name="tb_editMail"
+                                    Width="150"
+                                    HorizontalAlignment="Right"
+                                    Style="{StaticResource TB_Register}" />
+                            </DockPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>

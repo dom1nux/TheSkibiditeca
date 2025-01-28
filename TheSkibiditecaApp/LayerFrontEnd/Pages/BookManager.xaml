@@ -27,7 +27,7 @@
                             Content="Libros" />
                     </StackPanel>
                 </Button>
-                <Button x:Name="but_newbook" Style="{StaticResource BT_BarButton}">
+                <Button x:Name="but_newbook" Style="{StaticResource BT_BarButton}" Click="but_newbook_Click">
                     <StackPanel Orientation="Horizontal">
                         <Image Margin="17,0,0,0" Source="/Images/plus.png" />
                         <Label

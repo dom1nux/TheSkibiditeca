@@ -28,29 +28,33 @@
             </StackPanel>
             <TextBlock Style="{StaticResource TXT_Header2}" Text="Préstamo:" />
             <Border Style="{StaticResource BOR_ContBorder}">
-                <StackPanel>
-                    <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
+                <StackPanel Margin="0,0,150,0">
+                    <DockPanel HorizontalAlignment="Stretch">
                         <TextBlock Style="{StaticResource TXT_Info}" Text="ID del libro" />
-                        <TextBox x:Name="tb_idBook" Style="{StaticResource TB_Register}" />
-                    </StackPanel>
-                    <StackPanel
-                        Margin="0,15,0,0"
-                        HorizontalAlignment="Stretch"
-                        Orientation="Horizontal">
+                        <TextBox
+                            x:Name="tb_idBook"
+                            HorizontalAlignment="Right"
+                            Style="{StaticResource TB_Register}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
                         <TextBlock Style="{StaticResource TXT_Info}" Text="Fecha del préstamo" />
                         <DatePicker
                             x:Name="dp_idBook"
+                            HorizontalAlignment="Right"
                             SelectedDate="{x:Static sys:DateTime.Now}"
                             Style="{StaticResource DP_DateReg}" />
-                    </StackPanel>
+                    </DockPanel>
                 </StackPanel>
             </Border>
             <TextBlock Style="{StaticResource TXT_Header2}" Text="Estudiante:" />
             <Border Style="{StaticResource BOR_ContBorder}">
-                <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
+                <DockPanel Margin="0,0,150,0" HorizontalAlignment="Stretch">
                     <TextBlock Style="{StaticResource TXT_Info}" Text="Código del estudiante" />
-                    <TextBox x:Name="tb_idStudent" Style="{StaticResource TB_Register}" />
-                </StackPanel>
+                    <TextBox
+                        x:Name="tb_idStudent"
+                        HorizontalAlignment="Right"
+                        Style="{StaticResource TB_Register}" />
+                </DockPanel>
             </Border>
             <Button
                 Margin="100"

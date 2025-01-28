@@ -25,5 +25,10 @@ namespace TheSkibiditecaApp.Windows {
             Uri path = new(@"./BorrowList.xaml", UriKind.Relative);
             fra_actPage.Source = path;
         }
+
+        private void but_newbook_Click(object sender, RoutedEventArgs e) {
+            Uri path = new(@"./RegisterBook.xaml", UriKind.Relative);
+            fra_actPage.Source = path;
+        }
     }
 }
