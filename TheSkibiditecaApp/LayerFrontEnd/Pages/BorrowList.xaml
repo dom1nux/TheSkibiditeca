@@ -38,5 +38,23 @@
                 </StackPanel>
             </Button.Content>
         </Button>
+
+        <Border Margin="40,200,40,100" Style="{StaticResource BOR_ContBorder}">
+            <DataGrid Style="{StaticResource DG_DataInfo}" />
+        </Border>
+        <Button
+            x:Name="bt_returnConfirm"
+            Margin="40,0,0,40"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Content="Confirmar devolución"
+            Style="{StaticResource BT_GreenBack}" />
+        <Button
+            x:Name="bt_deleteBorrow"
+            Margin="300,0,0,40"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Content="Eliminar"
+            Style="{StaticResource BT_GreenBack}" />
     </Grid>
 </Page>

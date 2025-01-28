@@ -52,13 +52,10 @@
                     <TextBox x:Name="tb_idStudent" Style="{StaticResource TB_Register}" />
                 </StackPanel>
             </Border>
-            <Button Content="Confirmar" Style="{StaticResource BT_BlankNoBack}">
-                <Button.Resources>
-                    <Style TargetType="{x:Type Border}">
-                        <Setter Property="CornerRadius" Value="10" />
-                    </Style>
-                </Button.Resources>
-            </Button>
+            <Button
+                Margin="100"
+                Content="Confirmar"
+                Style="{StaticResource BT_BlankNoBack}" />
         </StackPanel>
 
     </Grid>

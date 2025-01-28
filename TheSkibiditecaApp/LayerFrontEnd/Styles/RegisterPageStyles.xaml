@@ -31,11 +31,30 @@
         <Setter Property="Background" Value="#66000000" />
         <Setter Property="CornerRadius" Value="10" />
         <Setter Property="Margin" Value="60,0,40,0" />
-        <Setter Property="Padding" Value="30,20,0,20" />
+        <Setter Property="Padding" Value="40,30,40,30" />
     </Style>
 
     <Style x:Key="DG_DataInfo" TargetType="DataGrid">
         <Setter Property="Background" Value="{x:Null}" />
         <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="IsReadOnly" Value="True" />
+        <Setter Property="ColumnWidth" Value="*" />
+        <Setter Property="AutoGenerateColumns" Value="True" />
+        <Setter Property="RowStyle">
+            <Setter.Value>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="FontFamily" Value="Consolas" />
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ColumnHeaderStyle">
+            <Setter.Value>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="FontFamily" Value="Consolas" />
+                    <Setter Property="Padding" Value="10" />
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                </Style>
+            </Setter.Value>
+        </Setter>
     </Style>
-</ResourceDictionary>
+</ResourceDictionary> 
