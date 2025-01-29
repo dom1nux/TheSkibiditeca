@@ -7,46 +7,44 @@ GO
 --              en la tabla Usuario (User) y retorna
 --              el rol correspondiente
 -- =============================================
-CREATE PROCEDURE spAuthenticateUser
+CREATE OR ALTER PROCEDURE spAuthenticateUser
     @Username NVARCHAR(50),
     @Password NVARCHAR(255),
-    @ReturnCode INT OUTPUT,    -- 0 for success, non-zero for errors
+    @ReturnCode INT OUTPUT,
     @Message NVARCHAR(255) OUTPUT
 AS
 BEGIN
     SET NOCOUNT ON;
 
     BEGIN TRY
-        -- Declare variables to hold retrieved data
+        -- Declaramos las variables que contienen la información
         DECLARE @StoredPasswordHash VARBINARY(64);
         DECLARE @Role NVARCHAR(15);
         DECLARE @InputPasswordHash VARBINARY(64);
 
-        -- Retrieve the stored password hash and role for the given username
+        -- Recuperamos el hash de la contraseña y rol del usuario
         SELECT 
             @StoredPasswordHash = PasswordHash,
             @Role = [Role]
         FROM [User]
         WHERE Username = @Username;
 
-        -- Check if the user exists
+        -- Verificamos si el rol existe
         IF @StoredPasswordHash IS NULL
         BEGIN
-            -- Authentication failed: User does not exist
-            SET @ReturnCode = 1;    -- Error Code 1: User not found
-            SET @Message = 'Authentication failed: Invalid username or password.';
+            SET @ReturnCode = 1;
+            SET @Message = 'Autenticación Fallida: Nombre de usuario o contraseña invalidos.';
             RETURN;
         END
 
-        -- Hash the input password using the same hashing algorithm
+        -- Calculamos el hash de la contraseña ingresada
         SET @InputPasswordHash = HASHBYTES('SHA2_512', @Password);
 
-        -- Compare the hashed passwords
+        -- Se compara los hash de l contraseña ingresada y de la contraseña almacenada
         IF @InputPasswordHash = @StoredPasswordHash
         BEGIN
-            -- Authentication successful
-            SET @ReturnCode = 0;    -- Success
-            SET @Message = 'Authentication successful.';
+            SET @ReturnCode = 0;
+            SET @Message = 'Autenticación exitosa.';
 
             -- Optional: Return user details if needed
             SELECT 
@@ -58,14 +56,13 @@ BEGIN
         END
         ELSE
         BEGIN
-            -- Authentication failed: Incorrect password
-            SET @ReturnCode = 2;    -- Error Code 2: Incorrect password
-            SET @Message = 'Authentication failed: Invalid username or password.';
+            SET @ReturnCode = 1;
+            SET @Message = 'Autenticación Fallida: Nombre de usuario o contraseña invalidos.';
         END
     END TRY
     BEGIN CATCH
-        -- Handle unexpected errors
-        SET @ReturnCode = 99;       -- Error Code 99: Unexpected error
+        -- Manejo de errores no esperados
+        SET @ReturnCode = -1;
         SET @Message = ERROR_MESSAGE();
     END CATCH
 END;
