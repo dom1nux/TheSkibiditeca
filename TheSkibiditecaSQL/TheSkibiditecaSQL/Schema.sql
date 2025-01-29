@@ -9,8 +9,8 @@ CREATE TABLE [User] (
 	UserID INT PRIMARY KEY IDENTITY,
 	Username NVARCHAR(50) NOT NULL,
 	PasswordHash VARBINARY(64) NOT NULL,
-	[Role] NVARCHAR(15) NOT NULL DEFAULT 'Estudiante'
-		CHECK (Role IN ('Administrador', 'Bibliotecario', 'Estudiante')) 
+	[Role] NVARCHAR(10) NOT NULL DEFAULT 'Student'
+		CHECK (Role IN ('Admin', 'Librarian', 'Student')) 
 );
 GO
 
