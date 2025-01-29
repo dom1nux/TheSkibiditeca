@@ -25,7 +25,7 @@ CREATE TABLE Librarian (
     [Address] NVARCHAR(255) NOT NULL,
     PhoneNumber NVARCHAR(15) NOT NULL,
     [Shift] NVARCHAR(6) NOT NULL
-        CHECK ([Shift] IN ('Mañana', 'Tarde', 'Noche')),
+        CHECK ([Shift] IN ('MaÃ±ana', 'Tarde', 'Noche')),
     EnrollmentDate DATE NOT NULL,
     [Status] NVARCHAR(10) NOT NULL
         CHECK ([Status] IN ('Activo', 'Retirado')),
@@ -47,12 +47,6 @@ CREATE TABLE Student (
     Gender CHAR(1) NOT NULL
         CHECK (Gender IN ('V', 'M')),
     Major NVARCHAR(50) NULL,
-    Semester TINYINT NULL
-        CHECK (Semester BETWEEN 1 AND 10),
-	CONSTRAINT FK_User_Student
-        FOREIGN KEY (UserID)
-        REFERENCES [User](UserID)
-        ON DELETE CASCADE
 );
 GO
 
@@ -63,8 +57,6 @@ CREATE TABLE Author (
     AuthorID INT PRIMARY KEY IDENTITY,
     FirstName NVARCHAR(100) NOT NULL,
     LastName NVARCHAR(100) NOT NULL,
-    BirthDate DATE NULL,
-    Nationality NVARCHAR(100) NULL
 );
 GO
 
