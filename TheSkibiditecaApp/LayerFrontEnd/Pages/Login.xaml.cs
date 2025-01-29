@@ -12,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LayerData;
+using LayerData.Objects;
 
 namespace TheSkibiditecaApp.Windows {
     /// <summary>
@@ -26,15 +28,28 @@ namespace TheSkibiditecaApp.Windows {
         public void RandomProfile() {
             string[] images = { "pedrocraft.png", "girasol.png", "chad.png", "xina.png", "peru.png" };
             Random rnd = new();
-            Uri pathIm = new($"../Images/" + images[rnd.Next(images.Length)], UriKind.Relative);
+            Uri pathIm = new($"../Images/Profiles/" + images[rnd.Next(images.Length)], UriKind.Relative);
             BitmapImage imgProf = new(pathIm);
             img_profile.Source = imgProf;
         }
 
         private void but_login_Click(object sender, RoutedEventArgs e) {
-           MainWindow wind = (MainWindow)App.Current.MainWindow;
-            Uri path = new("./Pages/BookManager.xaml", UriKind.Relative);
-            wind.fra_main.Source = path;
+            string role = SkLogic.database.CheckLogin(tb_user.Text, pb_password.Password);
+            if(string.IsNullOrEmpty(role)) MessageBox.Show("Usuario o contraseña incorrectos.");
+            else {
+                SkLogic.librarian = new Librarian() { 
+                    LibID = -1, 
+                    FirstName = tb_user.Text, 
+                    LastName = "",
+                    profilePhoto = img_profile.Source
+                };
+                MainWindow wind = (MainWindow)App.Current.MainWindow;
+                wind.fra_main.Navigate(new BookManager());
+            }
+        }
+
+        private void bt_updatePhoto_Click(object sender, RoutedEventArgs e) {
+            RandomProfile();
         }
     }
 }

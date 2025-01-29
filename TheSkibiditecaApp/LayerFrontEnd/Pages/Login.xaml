@@ -23,15 +23,8 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Top"
             Panel.ZIndex="1"
-            ScrollViewer.CanContentScroll="True"
-            Source="/Images/pedrocraft.png">
-            <Image.OpacityMask>
-                <RadialGradientBrush>
-                    <GradientStop Offset="1" Color="White" />
-                    <GradientStop Offset="1" />
-                </RadialGradientBrush>
-            </Image.OpacityMask>
-        </Image>
+            Source="/Images/Profiles/peru.png"
+            Style="{StaticResource IMG_Circular}" />
         <Border
             Margin="480,160,480,100"
             BorderBrush="Black"
@@ -73,6 +66,16 @@
                     Content="Iniciar sesión"
                     FontSize="20"
                     Style="{StaticResource BT_LoginStyle}" />
+                <Button
+                    x:Name="bt_updatePhoto"
+                    Margin="6"
+                    Padding="5"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Click="bt_updatePhoto_Click"
+                    Style="{StaticResource BT_LoginStyle}">
+                    <Image Width="23" Source="/Images/Icons/image.png" />
+                </Button>
             </Grid>
         </Border>
     </Grid>

@@ -18,18 +18,12 @@
             HorizontalAlignment="Left"
             Background="#FF4C0092">
             <StackPanel Margin="0,200,0,30">
-                <Button x:Name="but_books" Style="{StaticResource BT_BarButton}">
+                <Button
+                    x:Name="but_newbook"
+                    Click="but_newbook_Click"
+                    Style="{StaticResource BT_BarButton}">
                     <StackPanel Orientation="Horizontal">
-                        <Image Margin="17,0,0,0" Source="/Images/book.png" />
-                        <Label
-                            Margin="20,0,0,0"
-                            VerticalContentAlignment="Center"
-                            Content="Libros" />
-                    </StackPanel>
-                </Button>
-                <Button x:Name="but_newbook" Style="{StaticResource BT_BarButton}" Click="but_newbook_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Margin="17,0,0,0" Source="/Images/plus.png" />
+                        <Image Margin="17,0,0,0" Source="/Images/Icons/plus.png" />
                         <Label
                             Margin="20,0,0,0"
                             VerticalContentAlignment="Center"
@@ -41,7 +35,7 @@
                     Click="but_borrow_Click"
                     Style="{StaticResource BT_BarButton}">
                     <StackPanel Orientation="Horizontal">
-                        <Image Margin="17,0,0,0" Source="/Images/borrow.png" />
+                        <Image Margin="17,0,0,0" Source="/Images/Icons/borrow.png" />
                         <Label
                             Margin="20,0,0,0"
                             VerticalContentAlignment="Center"
@@ -54,11 +48,26 @@
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
                 Content="(LOGO) Skibiditeca" />
-            <Label
-                Margin="0,0,0,0"
-                HorizontalAlignment="Center"
+            <Border
+                Margin="20,0,20,40"
+                Padding="15"
                 VerticalAlignment="Bottom"
-                Content="(USUARIO)" />
+                Style="{StaticResource BOR_ContBorder}">
+                <DockPanel>
+                    <Image
+                        x:Name="img_profile"
+                        Width="50"
+                        HorizontalAlignment="Left"
+                        Source="/Images/Profiles/pedrocraft.png"
+                        Style="{StaticResource IMG_Circular}" />
+                    <Label
+                        x:Name="lab_user"
+                        Margin="30,0,0,0"
+                        VerticalAlignment="Center"
+                        Content="User"
+                        FontSize="23" />
+                </DockPanel>
+            </Border>
         </Grid>
         <Frame
             x:Name="fra_actPage"

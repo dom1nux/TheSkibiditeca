@@ -11,14 +11,21 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LayerData;
+using LayerData.Objects;
+using LayerFrontEnd.Pages;
 
 namespace TheSkibiditecaApp.Windows {
     /// <summary>
     /// Lógica de interacción para BookManager.xaml
     /// </summary>
     public partial class BookManager : Page {
+        private Librarian librarian = SkLogic.librarian!;
         public BookManager() {
             InitializeComponent();
+            img_profile.Source = librarian.profilePhoto;
+            lab_user.Content = librarian.FirstName;
+            fra_actPage.Navigate(new BorrowList());
         }
 
         private void but_borrow_Click(object sender, RoutedEventArgs e) {

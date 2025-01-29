@@ -127,4 +127,15 @@
             </Style>
         </Style.Resources>
     </Style>
+
+    <Style x:Key="IMG_Circular" TargetType="Image">
+        <Setter Property="OpacityMask">
+            <Setter.Value>
+                <RadialGradientBrush>
+                    <GradientStop Offset="1" Color="White" />
+                    <GradientStop Offset="1" />
+                </RadialGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

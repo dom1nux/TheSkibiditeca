@@ -9,45 +9,53 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\book.png" />
-    <None Remove="Images\borrow.png" />
-    <None Remove="Images\chad.png" />
-    <None Remove="Images\girasol.png" />
-    <None Remove="Images\pedrocraft.png" />
-    <None Remove="Images\peru.png" />
-    <None Remove="Images\plus.png" />
-    <None Remove="Images\xina.png" />
+    <None Remove="Images\Icons\book.png" />
+    <None Remove="Images\Icons\borrow.png" />
+    <None Remove="Images\Icons\image.png" />
+    <None Remove="Images\Icons\plus.png" />
+    <None Remove="Images\Profiles\chad.png" />
+    <None Remove="Images\Profiles\girasol.png" />
+    <None Remove="Images\Profiles\pedrocraft.png" />
+    <None Remove="Images\Profiles\peru.png" />
+    <None Remove="Images\Profiles\xina.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\book.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\borrow.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\chad.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\girasol.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\pedrocraft.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\peru.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\plus.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\xina.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Utils\" />
+    <ProjectReference Include="..\LayerData\LayerData.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Icons\book.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icons\borrow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icons\image.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icons\plus.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Profiles\chad.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Profiles\girasol.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Profiles\pedrocraft.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Profiles\peru.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Profiles\xina.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>
