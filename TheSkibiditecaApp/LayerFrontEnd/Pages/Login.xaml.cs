@@ -26,7 +26,7 @@ namespace TheSkibiditecaApp.Windows {
         }
 
         public void RandomProfile() {
-            string[] images = { "pedrocraft.png", "girasol.png", "chad.png", "xina.png", "peru.png" };
+            string[] images = ["AA.jpeg", "baca.jpeg", "caballo.jpg", "cangrejo.jpeg", "chad.png", "cocodrilo.jpeg", "dog_aur.jpeg", "flor.jpeg", "gato.png", "gatosandia.jpg", "gato_sorpr.jpeg", "girasol.png", "nerd_dog.jpg", "pato.jpeg", "pedrocraft.png", "peru.png", "rana.jpeg", "raul.jpeg", "slungus.png", "xina.png"];
             Random rnd = new();
             Uri pathIm = new($"../Images/Profiles/" + images[rnd.Next(images.Length)], UriKind.Relative);
             BitmapImage imgProf = new(pathIm);

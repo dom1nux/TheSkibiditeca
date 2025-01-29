@@ -13,19 +13,26 @@
     <None Remove="Images\Icons\borrow.png" />
     <None Remove="Images\Icons\image.png" />
     <None Remove="Images\Icons\plus.png" />
+    <None Remove="Images\Profiles\AA.jpeg" />
+    <None Remove="Images\Profiles\baca.jpeg" />
+    <None Remove="Images\Profiles\caballo.jpg" />
+    <None Remove="Images\Profiles\cangrejo.jpeg" />
     <None Remove="Images\Profiles\chad.png" />
+    <None Remove="Images\Profiles\cocodrilo.jpeg" />
+    <None Remove="Images\Profiles\dog_aur.jpeg" />
+    <None Remove="Images\Profiles\flor.jpeg" />
+    <None Remove="Images\Profiles\gato.png" />
+    <None Remove="Images\Profiles\gatosandia.jpg" />
+    <None Remove="Images\Profiles\gato_sorpr.jpeg" />
     <None Remove="Images\Profiles\girasol.png" />
+    <None Remove="Images\Profiles\nerd_dog.jpg" />
+    <None Remove="Images\Profiles\pato.jpeg" />
     <None Remove="Images\Profiles\pedrocraft.png" />
     <None Remove="Images\Profiles\peru.png" />
+    <None Remove="Images\Profiles\rana.jpeg" />
+    <None Remove="Images\Profiles\raul.jpeg" />
+    <None Remove="Images\Profiles\slungus.png" />
     <None Remove="Images\Profiles\xina.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\LayerData\LayerData.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,10 +48,46 @@
     <Resource Include="Images\Icons\plus.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\Profiles\AA.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Profiles\baca.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Profiles\caballo.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Profiles\cangrejo.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Profiles\chad.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\Profiles\cocodrilo.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Profiles\dog_aur.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Profiles\flor.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Profiles\gato.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Profiles\gatosandia.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Profiles\gato_sorpr.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Profiles\girasol.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Profiles\nerd_dog.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Profiles\pato.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Profiles\pedrocraft.png">
@@ -53,9 +96,25 @@
     <Resource Include="Images\Profiles\peru.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\Profiles\rana.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Profiles\raul.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Profiles\slungus.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Profiles\xina.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
 
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\LayerData\LayerData.csproj" />
+	</ItemGroup>
 </Project>
