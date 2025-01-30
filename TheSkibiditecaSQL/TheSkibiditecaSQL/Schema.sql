@@ -41,12 +41,16 @@ GO
 ------------------------------------------------
 CREATE TABLE Student (
     StudentID INT PRIMARY KEY IDENTITY,
-	UserID INT NOT NULL,
+	UserID INT NULL,
     FirstName NVARCHAR(100) NOT NULL,
     LastName NVARCHAR(100) NOT NULL,
     Gender CHAR(1) NOT NULL
         CHECK (Gender IN ('V', 'M')),
     Major NVARCHAR(50) NULL,
+	CONSTRAINT FK_User_Student
+        FOREIGN KEY (UserID)
+        REFERENCES [User](UserID)
+        ON DELETE CASCADE
 );
 GO
 
