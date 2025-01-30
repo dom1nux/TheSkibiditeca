@@ -10,6 +10,7 @@ namespace LayerData.Objects {
         public required int LibID;
         public required string FirstName;
         public required string LastName;
+        public required string Role;
         public required ImageSource profilePhoto;
     }
 }

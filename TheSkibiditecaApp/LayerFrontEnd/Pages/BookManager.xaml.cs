@@ -29,13 +29,11 @@ namespace TheSkibiditecaApp.Windows {
         }
 
         private void but_borrow_Click(object sender, RoutedEventArgs e) {
-            Uri path = new(@"./BorrowList.xaml", UriKind.Relative);
-            fra_actPage.Source = path;
+            fra_actPage.Navigate(new BorrowList());
         }
 
         private void but_newbook_Click(object sender, RoutedEventArgs e) {
-            Uri path = new(@"./RegisterBook.xaml", UriKind.Relative);
-            fra_actPage.Source = path;
+            fra_actPage.Navigate(new RegisterBook());
         }
     }
 }

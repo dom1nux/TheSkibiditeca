@@ -1,0 +1,54 @@
+﻿<UserControl
+    x:Class="LayerFrontEnd.Controls.Components.RegisterAuthor"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:LayerFrontEnd.Controls.Components"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="120"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+    <StackPanel>
+        <DockPanel HorizontalAlignment="Stretch">
+            <TextBlock Style="{StaticResource TXT_Info}" Text="Nombre" />
+            <TextBox
+                x:Name="tb_authorName"
+                Width="150"
+                HorizontalAlignment="Right"
+                Style="{StaticResource TB_Register}" />
+        </DockPanel>
+        <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
+            <TextBlock Style="{StaticResource TXT_Info}" Text="Apellidos" />
+            <TextBox
+                x:Name="tb_authorLastName"
+                Width="150"
+                HorizontalAlignment="Right"
+                Style="{StaticResource TB_Register}" />
+        </DockPanel>
+        <StackPanel
+            Margin="0,20,0,0"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal">
+            <Button
+                x:Name="bt_confirm"
+                Margin="10,0"
+                Style="{StaticResource BT_BlankNoBack}">
+                <TextBlock
+                    Padding="15,5"
+                    VerticalAlignment="Center"
+                    FontSize="15"
+                    Text="Confirmar" />
+            </Button>
+            <Button
+                x:Name="bt_cancel"
+                Margin="10,0"
+                Style="{StaticResource BT_BlankNoBack}">
+                <TextBlock
+                    Padding="15,5"
+                    VerticalAlignment="Center"
+                    FontSize="15"
+                    Text="Cancelar" />
+            </Button>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

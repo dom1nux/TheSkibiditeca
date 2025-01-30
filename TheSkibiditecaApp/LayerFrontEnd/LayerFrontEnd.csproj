@@ -13,6 +13,7 @@
     <None Remove="Images\Icons\borrow.png" />
     <None Remove="Images\Icons\image.png" />
     <None Remove="Images\Icons\plus.png" />
+    <None Remove="Images\Icons\refresh.png" />
     <None Remove="Images\Profiles\AA.jpeg" />
     <None Remove="Images\Profiles\baca.jpeg" />
     <None Remove="Images\Profiles\caballo.jpg" />
@@ -46,6 +47,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Icons\plus.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icons\refresh.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Profiles\AA.jpeg">

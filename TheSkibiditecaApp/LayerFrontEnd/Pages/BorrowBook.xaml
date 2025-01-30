@@ -57,9 +57,11 @@
                 </DockPanel>
             </Border>
             <Button
+                x:Name="bt_registerConfirm"
                 Margin="100"
-                Content="Confirmar"
-                Style="{StaticResource BT_BlankNoBack}" />
+                Style="{StaticResource BT_BlankNoBack}">
+                <TextBlock Padding="30,10" Text="Confirmar" />
+            </Button>
         </StackPanel>
 
     </Grid>

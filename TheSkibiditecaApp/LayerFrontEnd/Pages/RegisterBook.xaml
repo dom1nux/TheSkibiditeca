@@ -71,74 +71,22 @@
                 <StackPanel Grid.Column="0">
                     <TextBlock Style="{StaticResource TXT_Header2}" Text="Autor" />
                     <Border Style="{StaticResource BOR_ContBorder}">
-                        <StackPanel>
-                            <DockPanel HorizontalAlignment="Stretch">
-                                <TextBlock Style="{StaticResource TXT_Info}" Text="Nombre" />
-                                <TextBox
-                                    x:Name="tb_authorName"
-                                    Width="150"
-                                    HorizontalAlignment="Right"
-                                    Style="{StaticResource TB_Register}" />
-                            </DockPanel>
-                            <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
-                                <TextBlock Style="{StaticResource TXT_Info}" Text="Apellidos" />
-                                <TextBox
-                                    x:Name="tb_authorLastName"
-                                    Width="150"
-                                    HorizontalAlignment="Right"
-                                    Style="{StaticResource TB_Register}" />
-                            </DockPanel>
-                            <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
-                                <TextBlock Style="{StaticResource TXT_Info}" Text="Nacionalidad" />
-                                <TextBox
-                                    x:Name="tb_authorLocation"
-                                    Width="150"
-                                    HorizontalAlignment="Right"
-                                    Style="{StaticResource TB_Register}" />
-                            </DockPanel>
-                        </StackPanel>
+                        <Frame x:Name="fra_author" />
                     </Border>
                 </StackPanel>
                 <StackPanel Grid.Column="1">
                     <TextBlock Style="{StaticResource TXT_Header2}" Text="Editorial" />
                     <Border Style="{StaticResource BOR_ContBorder}">
-                        <StackPanel>
-                            <DockPanel HorizontalAlignment="Stretch">
-                                <TextBlock Style="{StaticResource TXT_Info}" Text="Nombre" />
-                                <TextBox
-                                    x:Name="tb_editName"
-                                    Width="150"
-                                    HorizontalAlignment="Right"
-                                    Style="{StaticResource TB_Register}" />
-                            </DockPanel>
-                            <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
-                                <TextBlock Style="{StaticResource TXT_Info}" Text="Dirección" />
-                                <TextBox
-                                    x:Name="tb_editAdress"
-                                    Width="150"
-                                    HorizontalAlignment="Right"
-                                    Style="{StaticResource TB_Register}" />
-                            </DockPanel>
-                            <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
-                                <TextBlock Style="{StaticResource TXT_Info}" Text="Teléfono" />
-                                <TextBox
-                                    x:Name="tb_editPhone"
-                                    Width="150"
-                                    HorizontalAlignment="Right"
-                                    Style="{StaticResource TB_Register}" />
-                            </DockPanel>
-                            <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
-                                <TextBlock Style="{StaticResource TXT_Info}" Text="Email" />
-                                <TextBox
-                                    x:Name="tb_editMail"
-                                    Width="150"
-                                    HorizontalAlignment="Right"
-                                    Style="{StaticResource TB_Register}" />
-                            </DockPanel>
-                        </StackPanel>
+                        <Frame x:Name="fra_publisher" />
                     </Border>
                 </StackPanel>
             </Grid>
+            <Button
+                x:Name="bt_registerConfirm"
+                Margin="30"
+                Style="{StaticResource BT_BlankNoBack}">
+                <TextBlock Padding="30,10" Text="Confirmar" />
+            </Button>
         </StackPanel>
     </Grid>
 </Page>

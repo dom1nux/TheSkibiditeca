@@ -1,5 +1,4 @@
-﻿using LayerFrontEnd.Controls.Components;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,15 +13,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LayerFrontEnd.Pages {
+namespace LayerFrontEnd.Controls.Components {
     /// <summary>
-    /// Lógica de interacción para RegisterBook.xaml
+    /// Lógica de interacción para RegisterAuthor.xaml
     /// </summary>
-    public partial class RegisterBook : Page {
-        public RegisterBook() {
+    public partial class RegisterAuthor : UserControl {
+        public RegisterAuthor() {
             InitializeComponent();
-            fra_author.Navigate(new RegisterAuthor());
-            fra_publisher.Navigate(new RegisterPublisher());
         }
     }
 }

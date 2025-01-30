@@ -41,10 +41,10 @@ namespace TheSkibiditecaApp.Windows {
                     LibID = -1, 
                     FirstName = tb_user.Text, 
                     LastName = "",
+                    Role = role,
                     profilePhoto = img_profile.Source
                 };
-                MainWindow wind = (MainWindow)App.Current.MainWindow;
-                wind.fra_main.Navigate(new BookManager());
+                NavigationService.Navigate(new BookManager());
             }
         }
 

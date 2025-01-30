@@ -17,18 +17,15 @@
         <TextBlock Style="{StaticResource TXT_Header1}" Text="Préstamos" />
         <Button
             x:Name="bt_newBorrow"
-            Width="230"
-            Height="60"
             Margin="0,10,10,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
             Click="bt_newBorrow_Click"
             Style="{StaticResource BT_BlankNoBack}">
             <Button.Content>
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Margin="20,10" Orientation="Horizontal">
                     <Image
                         Width="40"
-                        Margin="0,0,20,0"
                         Source="/Images/Icons/plus.png"
                         Stretch="Uniform" />
                     <Label
@@ -38,9 +35,32 @@
                 </StackPanel>
             </Button.Content>
         </Button>
+        <Button
+            x:Name="bt_updateBorrows"
+            Margin="0,10,190,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Click="bt_updateBorrows_Click"
+            Style="{StaticResource BT_BlankNoBack}">
+            <Button.Content>
+                <StackPanel Margin="20,10" Orientation="Horizontal">
+                    <Image
+                        Width="40"
+                        Source="/Images/Icons/refresh.png"
+                        Stretch="Uniform" />
+                    <Label
+                        VerticalAlignment="Center"
+                        Content="Actualizar"
+                        FontSize="20" />
+                </StackPanel>
+            </Button.Content>
+        </Button>
 
-        <Border Margin="40,200,40,100" Style="{StaticResource BOR_ContBorder}">
-            <DataGrid Style="{StaticResource DG_DataInfo}" />
+        <Border Margin="40,130,40,100" Style="{StaticResource BOR_ContBorder}">
+            <DataGrid
+                x:Name="dg_borrows"
+                SelectionChanged="DataGrid_Selected"
+                Style="{StaticResource DG_DataInfo}" />
         </Border>
         <Button
             x:Name="bt_returnConfirm"
@@ -48,6 +68,7 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
             Content="Confirmar devolución"
+            IsEnabled="False"
             Style="{StaticResource BT_GreenBack}" />
         <Button
             x:Name="bt_deleteBorrow"
@@ -55,6 +76,7 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
             Content="Eliminar"
+            IsEnabled="False"
             Style="{StaticResource BT_GreenBack}" />
     </Grid>
 </Page>

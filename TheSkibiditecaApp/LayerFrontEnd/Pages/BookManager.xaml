@@ -19,7 +19,7 @@
             Background="#FF4C0092">
             <StackPanel Margin="0,200,0,30">
                 <Button
-                    x:Name="but_newbook"
+                    x:Name="but_newBook"
                     Click="but_newbook_Click"
                     Style="{StaticResource BT_BarButton}">
                     <StackPanel Orientation="Horizontal">
