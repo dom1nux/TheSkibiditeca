@@ -69,13 +69,31 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="0">
-                    <TextBlock Style="{StaticResource TXT_Header2}" Text="Autor" />
+                    <DockPanel>
+                        <TextBlock Style="{StaticResource TXT_Header2}" Text="Autor" />
+                        <Button
+                            x:Name="bt_authorFrame"
+                            Padding="15,8"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Content="Nuevo"
+                            Style="{StaticResource BT_GraySimpe}" Click="bt_authorFrame_Click" />
+                    </DockPanel>
                     <Border Style="{StaticResource BOR_ContBorder}">
                         <Frame x:Name="fra_author" />
                     </Border>
                 </StackPanel>
                 <StackPanel Grid.Column="1">
-                    <TextBlock Style="{StaticResource TXT_Header2}" Text="Editorial" />
+                    <DockPanel>
+                        <TextBlock Style="{StaticResource TXT_Header2}" Text="Editorial" />
+                        <Button
+                            x:Name="bt_publisherFrame"
+                            Padding="15,8"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Content="Nuevo"
+                            Style="{StaticResource BT_GraySimpe}" Click="bt_publisherFrame_Click" />
+                    </DockPanel>
                     <Border Style="{StaticResource BOR_ContBorder}">
                         <Frame x:Name="fra_publisher" />
                     </Border>
