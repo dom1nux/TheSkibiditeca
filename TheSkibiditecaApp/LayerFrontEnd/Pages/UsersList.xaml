@@ -19,7 +19,8 @@
             Margin="0,10,10,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
-            Style="{StaticResource BT_BlankNoBack}" Click="bt_newUser_Click">
+            Click="bt_newUser_Click"
+            Style="{StaticResource BT_BlankNoBack}">
             <Button.Content>
                 <StackPanel Margin="20,10" Orientation="Horizontal">
                     <Image
@@ -38,6 +39,7 @@
             Margin="0,10,190,0"
             HorizontalAlignment="Right"
             VerticalAlignment="Top"
+            Click="bt_updateUsers_Click"
             Style="{StaticResource BT_BlankNoBack}">
             <Button.Content>
                 <StackPanel Margin="20,10" Orientation="Horizontal">

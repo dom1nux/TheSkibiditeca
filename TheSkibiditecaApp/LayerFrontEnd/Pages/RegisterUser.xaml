@@ -56,6 +56,7 @@
                     <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
                         <TextBlock Style="{StaticResource TXT_Info}" Text="Turno" />
                         <ComboBox
+                            x:Name="cb_shift"
                             Width="250"
                             HorizontalAlignment="Right"
                             Style="{StaticResource CB_Register}">
@@ -86,6 +87,7 @@
                     <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
                         <TextBlock Style="{StaticResource TXT_Info}" Text="Rol" />
                         <ComboBox
+                            x:Name="cb_role"
                             Width="250"
                             HorizontalAlignment="Right"
                             Style="{StaticResource CB_Register}">
@@ -98,6 +100,7 @@
             <Button
                 x:Name="bt_registerConfirm"
                 Margin="50"
+                Click="bt_registerConfirm_Click"
                 Style="{StaticResource BT_BlankNoBack}">
                 <TextBlock Padding="30,10" Text="Confirmar" />
             </Button>

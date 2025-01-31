@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LayerData;
+using LayerData.Objects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,20 @@ namespace LayerFrontEnd.Pages {
         }
 
         private void bt_back_Click(object sender, RoutedEventArgs e) {
+            NavigationService.GoBack();
+        }
+
+        private void bt_registerConfirm_Click(object sender, RoutedEventArgs e) {
+            Librarian lib = new() {
+                Address = tb_address.Text,
+                FirstName = tb_names.Text,
+                LastName = tb_lastNames.Text,
+                Phone = tb_phoneNumber.Text,
+                Role = (cb_role.Text == "Administrador" ? "Admin" : "Librarian"),
+                Shift = cb_shift.Text,
+            };
+
+            SkLogic.database.RegisterUser(lib, tb_user.Text, tb_password.Text);
             NavigationService.GoBack();
         }
     }

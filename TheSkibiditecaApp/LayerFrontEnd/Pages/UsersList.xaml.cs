@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LayerData;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,10 +21,15 @@ namespace LayerFrontEnd.Pages {
     public partial class UsersList : Page {
         public UsersList() {
             InitializeComponent();
+            dg_users.ItemsSource = SkLogic.database.ViewLibrariansTable();
         }
 
         private void bt_newUser_Click(object sender, RoutedEventArgs e) {
             NavigationService.Navigate(new RegisterUser());
+        }
+
+        private void bt_updateUsers_Click(object sender, RoutedEventArgs e) {
+            dg_users.ItemsSource = SkLogic.database.ViewLibrariansTable();
         }
     }
 }

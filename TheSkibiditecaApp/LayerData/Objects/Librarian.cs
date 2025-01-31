@@ -7,10 +7,13 @@ using System.Windows.Media;
 
 namespace LayerData.Objects {
     public class Librarian {
-        public required int LibID;
+        public int LibID;
         public required string FirstName;
         public required string LastName;
         public required string Role;
-        public required ImageSource profilePhoto;
+        public required string Shift;
+        public required string Address;
+        public required string Phone;
+        public ImageSource? profilePhoto;
     }
 }

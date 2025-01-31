@@ -55,16 +55,6 @@
                     FontSize="15"
                     Text="Confirmar" />
             </Button>
-            <Button
-                x:Name="bt_cancel"
-                Margin="10,0"
-                Style="{StaticResource BT_BlankNoBack}">
-                <TextBlock
-                    Padding="15,5"
-                    VerticalAlignment="Center"
-                    FontSize="15"
-                    Text="Cancelar" />
-            </Button>
         </StackPanel>
     </StackPanel>
 </UserControl>

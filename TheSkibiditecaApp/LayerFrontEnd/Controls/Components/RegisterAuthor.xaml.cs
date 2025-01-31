@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LayerData;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,10 @@ namespace LayerFrontEnd.Controls.Components {
     public partial class RegisterAuthor : UserControl {
         public RegisterAuthor() {
             InitializeComponent();
+        }
+
+        private void bt_confirm_Click(object sender, RoutedEventArgs e) {
+            
         }
     }
 }

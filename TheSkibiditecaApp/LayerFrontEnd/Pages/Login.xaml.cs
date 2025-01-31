@@ -38,7 +38,9 @@ namespace TheSkibiditecaApp.Windows {
             if(string.IsNullOrEmpty(role)) MessageBox.Show("Usuario o contraseña incorrectos.");
             else {
                 SkLogic.librarian = new Librarian() { 
-                    LibID = -1, 
+                    Address = "",
+                    Phone = "",
+                    Shift = "",
                     FirstName = tb_user.Text, 
                     LastName = "",
                     Role = role,
