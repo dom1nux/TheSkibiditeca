@@ -19,8 +19,8 @@ namespace LayerFrontEnd.Pages {
     /// Lógica de interacción para RegisterBook.xaml
     /// </summary>
     public partial class RegisterBook : Page {
-        public bool fraAuthorNew = false;
-        public bool fraPublNew = false;
+        private bool fraAuthorNew = false;
+        private bool fraPublNew = false;
         public RegisterBook() {
             InitializeComponent();
             fra_author.Navigate(new SelectAuthor());
