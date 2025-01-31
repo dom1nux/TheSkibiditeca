@@ -42,6 +42,15 @@
                             Content="Préstamos" />
                     </StackPanel>
                 </Button>
+                <Button x:Name="but_users" Style="{StaticResource BT_BarButton}" Click="but_users_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="17,0,0,0" Source="/Images/Icons/users.png" />
+                        <Label
+                            Margin="20,0,0,0"
+                            VerticalContentAlignment="Center"
+                            Content="Usuarios" />
+                    </StackPanel>
+                </Button>
             </StackPanel>
             <Image
                 Height="190"

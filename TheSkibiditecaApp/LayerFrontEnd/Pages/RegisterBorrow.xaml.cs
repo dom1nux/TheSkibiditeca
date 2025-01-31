@@ -23,7 +23,7 @@ namespace TheSkibiditecaApp.Windows{
         }
 
         private void bt_back_Click(object sender, RoutedEventArgs e) {
-            NavigationService.Navigate(new BorrowList());
+            NavigationService.GoBack();
         }
 
         private void bt_sudentFrame_Click(object sender, RoutedEventArgs e) {

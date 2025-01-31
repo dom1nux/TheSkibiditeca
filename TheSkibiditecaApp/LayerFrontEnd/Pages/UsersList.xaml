@@ -1,0 +1,68 @@
+﻿<Page
+    x:Class="LayerFrontEnd.Pages.UsersList"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:LayerFrontEnd.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uc="clr-namespace:LayerFrontEnd.Controls.Backgrounds"
+    d:DesignHeight="768"
+    d:DesignWidth="1016"
+    mc:Ignorable="d">
+
+    <Grid>
+        <uc:BCK_Manager />
+        <!--  Header  -->
+        <TextBlock Style="{StaticResource TXT_Header1}" Text="Usuarios" />
+        <Button
+            x:Name="bt_newUser"
+            Margin="0,10,10,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Style="{StaticResource BT_BlankNoBack}" Click="bt_newUser_Click">
+            <Button.Content>
+                <StackPanel Margin="20,10" Orientation="Horizontal">
+                    <Image
+                        Width="40"
+                        Source="/Images/Icons/plus.png"
+                        Stretch="Uniform" />
+                    <Label
+                        VerticalAlignment="Center"
+                        Content="Nuevo"
+                        FontSize="20" />
+                </StackPanel>
+            </Button.Content>
+        </Button>
+        <Button
+            x:Name="bt_updateUsers"
+            Margin="0,10,190,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Style="{StaticResource BT_BlankNoBack}">
+            <Button.Content>
+                <StackPanel Margin="20,10" Orientation="Horizontal">
+                    <Image
+                        Width="40"
+                        Source="/Images/Icons/refresh.png"
+                        Stretch="Uniform" />
+                    <Label
+                        VerticalAlignment="Center"
+                        Content="Actualizar"
+                        FontSize="20" />
+                </StackPanel>
+            </Button.Content>
+        </Button>
+
+        <Border Margin="40,130,40,100" Style="{StaticResource BOR_ContBorder}">
+            <DataGrid x:Name="dg_users" Style="{StaticResource DG_DataInfo}" />
+        </Border>
+        <Button
+            x:Name="bt_returnConfirm"
+            Margin="40,0,0,40"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Content="Eliminar"
+            IsEnabled="False"
+            Style="{StaticResource BT_GreenBack}" />
+    </Grid>
+</Page>
