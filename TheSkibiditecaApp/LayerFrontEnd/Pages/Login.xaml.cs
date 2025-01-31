@@ -34,7 +34,7 @@ namespace TheSkibiditecaApp.Windows {
         }
 
         private void but_login_Click(object sender, RoutedEventArgs e) {
-            string role = "Admin";//SkLogic.database.CheckLogin(tb_user.Text, pb_password.Password);
+            string role = SkLogic.database.CheckLogin(tb_user.Text, pb_password.Password);
             if(string.IsNullOrEmpty(role)) MessageBox.Show("Usuario o contraseña incorrectos.");
             else {
                 SkLogic.librarian = new Librarian() { 
