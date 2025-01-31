@@ -53,8 +53,9 @@
                     Padding="15,8"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
+                    Click="bt_sudentFrame_Click"
                     Content="Nuevo"
-                    Style="{StaticResource BT_GraySimpe}" Click="bt_sudentFrame_Click" />
+                    Style="{StaticResource BT_GraySimpe}" />
             </DockPanel>
             <Border Style="{StaticResource BOR_ContBorder}">
                 <Frame x:Name="fra_student" />
