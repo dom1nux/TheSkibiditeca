@@ -25,6 +25,7 @@ namespace TheSkibiditecaApp.Windows {
             InitializeComponent();
             img_profile.Source = librarian.profilePhoto;
             lab_user.Content = librarian.FirstName;
+            SkLogic.actualWind.Title = "Administrador";
             fra_actPage.Navigate(new BorrowList());
         }
 

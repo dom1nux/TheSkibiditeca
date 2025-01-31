@@ -43,11 +43,10 @@
                     </StackPanel>
                 </Button>
             </StackPanel>
-            <Label
-                Margin="0,76,0,0"
-                HorizontalAlignment="Center"
+            <Image
+                Height="190"
                 VerticalAlignment="Top"
-                Content="(LOGO) Skibiditeca" />
+                Source="/Images/Icons/logo.png" />
             <Border
                 Margin="20,0,20,40"
                 Padding="15"
