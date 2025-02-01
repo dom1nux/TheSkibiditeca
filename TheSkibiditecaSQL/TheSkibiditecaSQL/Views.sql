@@ -99,6 +99,7 @@ LEFT JOIN Publisher p ON b.PublisherID = p.PublisherID
 LEFT JOIN Authored au ON b.BookID = au.BookID
 LEFT JOIN Author a ON au.AuthorID = a.AuthorID
 GROUP BY 
+    b.BookID,
     b.Title,
     b.PublicationYear,
     b.ISBN,
