@@ -2,7 +2,7 @@ USE TheSkibiditeca;
 GO
 
 -- =============================================
--- Descripci�n: Autentica a un usuario verificando 
+-- Descripción: Autentica a un usuario verificando 
 --              si sus credenciales estan presentes
 --              en la tabla Usuario (User) y retorna
 --              el rol correspondiente
@@ -17,12 +17,12 @@ BEGIN
     SET NOCOUNT ON;
 
     BEGIN TRY
-        -- Declaramos las variables que contienen la informaci�n
+        -- Declaramos las variables que contienen la información
         DECLARE @StoredPasswordHash VARBINARY(64);
         DECLARE @Role NVARCHAR(15);
         DECLARE @InputPasswordHash VARBINARY(64);
 
-        -- Recuperamos el hash de la contrase�a y rol del usuario
+        -- Recuperamos el hash de la contraseña y rol del usuario
         SELECT 
             @StoredPasswordHash = PasswordHash,
             @Role = [Role]
@@ -33,18 +33,18 @@ BEGIN
         IF @StoredPasswordHash IS NULL
         BEGIN
             SET @ReturnCode = 1;
-            SET @Message = 'Autenticaci�n Fallida: Nombre de usuario o contrase�a invalidos.';
+            SET @Message = 'Autenticación Fallida: Nombre de usuario o contraseña invalidos.';
             RETURN;
         END
 
-        -- Calculamos el hash de la contrase�a ingresada
+        -- Calculamos el hash de la contraseña ingresada
         SET @InputPasswordHash = HASHBYTES('SHA2_512', @Password);
 
-        -- Se compara los hash de l contrase�a ingresada y de la contrase�a almacenada
+        -- Se compara los hash de l contraseña ingresada y de la contrase�a almacenada
         IF @InputPasswordHash = @StoredPasswordHash
         BEGIN
             SET @ReturnCode = 0;
-            SET @Message = 'Autenticaci�n exitosa.';
+            SET @Message = 'Autenticación exitosa.';
 
             -- Optional: Return user details if needed
             SELECT 
@@ -57,7 +57,7 @@ BEGIN
         ELSE
         BEGIN
             SET @ReturnCode = 1;
-            SET @Message = 'Autenticaci�n Fallida: Nombre de usuario o contrase�a invalidos.';
+            SET @Message = 'Autenticación Fallida: Nombre de usuario o contraseña invalidos.';
         END
     END TRY
     BEGIN CATCH
@@ -68,6 +68,9 @@ BEGIN
 END;
 GO
 
+-- ====================================
+-- Descripción: Registra a un usuario
+-- ====================================
 CREATE OR ALTER PROCEDURE spRegisterUser
 	@Username NVARCHAR(50),
 	@Password NVARCHAR(255),
@@ -99,34 +102,50 @@ BEGIN
 END;
 GO
 
--- =============================================
--- Descripci�n: Registra un usuario pe 
--- =============================================
-CREATE OR ALTER PROCEDURE spRegisterUser
-    @Username NVARCHAR(50),
-    @Password NVARCHAR(255),
-    @Role NVARCHAR(10),
-    @FirstName NVARCHAR(100),
-    @LastName NVARCHAR(100),
-    @Adress NVARCHAR(255),
-    @PhoneNumber NVARCHAR(15),
-    @Shift NVARCHAR(6)
+-- =============================================================================
+-- Descripción: Procesa los retornos de libros en la tabla devolucion (Return) 
+--              previamente registrados en la tabla prestamos (Borrow).
+-- =============================================================================
+CREATE OR ALTER PROCEDURE ProcessReturn
+    @BorrowID INT
 AS
 BEGIN
-    DECLARE @PasswordHash VARBINARY(64);
-    DECLARE @UserID INT;
-
-    SET @PasswordHash = HASHBYTES('SHA2_512', @Password);
-    INSERT INTO [User] (Username, PasswordHash, [Role])
-    VALUES (@Username, @PassWordHash, @Role);
-
-    SET @UserID = (SELECT UserID FROM [User] WHERE Username = @Username);
-    INSERT INTO Librarian (UserID, FirstName, LastName, [Address], PhoneNumber, [Shift], EnrollmentDate, [Status])
-    VALUES (@UserID, @FirstName, @LastName, @Adress, @PhoneNumber, @Shift, GETDATE(), 'Activo')
+    SET NOCOUNT ON;
+    
+    BEGIN TRY
+        BEGIN TRANSACTION;
+        
+        IF NOT EXISTS (
+            SELECT 1 
+            FROM Borrow 
+            WHERE BorrowID = @BorrowID 
+              AND BorrowStatus = 'Por Devolver'
+        )
+        BEGIN
+            RAISERROR('Borrow record not found or already processed.', 16, 1);
+            ROLLBACK TRANSACTION;
+            RETURN;
+        END;
+        
+        INSERT INTO [Return](BorrowID, ReturnDate)
+        VALUES (@BorrowID, GETDATE());
+        
+        UPDATE Borrow
+        SET BorrowStatus = 'Devuelto'
+        WHERE BorrowID = @BorrowID;
+        
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION;
+        DECLARE @ErrorMessage NVARCHAR(MAX) = ERROR_MESSAGE();
+        RAISERROR(@ErrorMessage, 16, 1);
+    END CATCH
 END;
+GO
 
 -- =============================================
--- Descripci�n: Crea el login y usuario para la aplicacion
+-- Descripción: Crea el login y usuario para la aplicacion
 --              y establece los permisos correspondientes.
 -- =============================================
 CREATE LOGIN AppLogin
