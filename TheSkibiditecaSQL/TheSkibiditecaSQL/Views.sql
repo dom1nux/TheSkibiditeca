@@ -5,12 +5,11 @@ GO
 -- Vistas para prestamos con devolución pendiente
 -- ================================================
 CREATE OR ALTER VIEW vwPendingBorrows AS
-SELECT 
-    b.BorrowID,
-    bk.Title,
-    s.FirstName + ' ' + s.LastName AS StudentName,
-    b.BorrowDate,
-    b.BorrowStatus
+SELECT
+    bk.Title AS 'Título',
+    s.FirstName + ' ' + s.LastName AS 'Estudiante',
+    b.BorrowDate AS 'Fecha de Prestamo',
+    b.BorrowStatus AS 'Estado del Prestamo'
 FROM Borrow b
 JOIN Book bk ON b.BookID = bk.BookID
 JOIN Student s ON b.StudentID = s.StudentID
@@ -21,12 +20,11 @@ GO
 -- Vistas para prestamos con devolución completada
 -- =================================================
 CREATE OR ALTER VIEW vwReturnedBorrows AS
-SELECT 
-    b.BorrowID,
-    bk.Title,
-    s.FirstName + ' ' + s.LastName AS 'Student Name',
-    b.BorrowDate,
-    b.BorrowStatus
+SELECT
+    bk.Title AS 'Título',
+    s.FirstName + ' ' + s.LastName AS 'Estudiante',
+    b.BorrowDate AS 'Fecha de Prestamo',
+    b.BorrowStatus AS 'Estado de Prestamo'
 FROM Borrow b
 JOIN Book bk ON b.BookID = bk.BookID
 JOIN Student s ON b.StudentID = s.StudentID
@@ -37,13 +35,12 @@ GO
 -- Vista para prestamos con devolución fuera de tiempo
 -- =====================================================
 CREATE OR ALTER VIEW vwOverdueBorrows AS
-SELECT 
-    b.BorrowID,
-    bk.Title,
-    s.FirstName + ' ' + s.LastName AS StudentName,
-    b.BorrowDate,
-    DATEADD(DAY, 30, b.BorrowDate) AS DueDate,
-    b.BorrowStatus
+SELECT
+    bk.Title AS 'Título',
+    s.FirstName + ' ' + s.LastName AS 'Estudiante',
+    b.BorrowDate AS 'Fecha de Prestamo',
+    DATEADD(DAY, 30, b.BorrowDate) AS 'Días Atrasados',
+    b.BorrowStatus AS 'Estado de Prestamo'
 FROM Borrow b
 JOIN Book bk ON b.BookID = bk.BookID
 JOIN Student s ON b.StudentID = s.StudentID
@@ -69,15 +66,19 @@ GO
 -- ===============================================
 CREATE OR ALTER VIEW vwStudentBorrowHistory AS
 SELECT 
-    s.StudentID,
-    s.FirstName + ' ' + s.LastName AS StudentName,
-    b.BorrowID,
-    bk.Title,
-    b.BorrowDate,
-    b.BorrowStatus
+    s.StudentID AS 'ID',
+    s.FirstName + ' ' + s.LastName AS 'Estudiante',
+    bk.Title AS 'Título',
+    bk.ISBN AS 'ISBN',
+    b.BorrowDate AS 'Fecha de Prestamo',
+    CASE 
+        WHEN rt.ReturnDate IS NULL THEN 'Pendiente'
+        ELSE CONVERT(VARCHAR(10), rt.ReturnDate, 103)  -- dd/mm/yyyy format
+    END AS 'Fecha de devolución'
 FROM Student s
 JOIN Borrow b ON s.StudentID = b.StudentID
-JOIN Book bk ON b.BookID = bk.BookID;
+JOIN Book bk ON b.BookID = bk.BookID
+LEFT JOIN [Return] rt ON b.BorrowID = rt.BorrowID;
 GO
 
 -- ============================
@@ -85,24 +86,24 @@ GO
 -- ============================
 CREATE OR ALTER VIEW vwBookDetails AS
 SELECT 
-    b.BookID,
-    b.Title,
-    b.PublicationYear,
+    b.Title AS 'Título',
+    b.PublicationYear AS 'Año de Publicación',
     b.ISBN,
-    b.Pages,
-    b.[Language],
-    b.PublisherID,
-    STRING_AGG(CONCAT(a.FirstName, ' ', a.LastName), ', ') AS Authors
+    b.Pages AS 'Páginas',
+    b.[Language] AS 'Idioma',
+    p.[Name] AS 'Editorial',
+    STRING_AGG(CONCAT(a.FirstName, ' ', a.LastName), ', ') AS 'Autores'
 FROM Book b
+LEFT JOIN Publisher p ON b.PublisherID = p.PublisherID
 LEFT JOIN Authored au ON b.BookID = au.BookID
 LEFT JOIN Author a ON au.AuthorID = a.AuthorID
 GROUP BY 
-    b.BookID,
     b.Title,
     b.PublicationYear,
     b.ISBN,
     b.Pages,
     b.[Language],
+    p.[Name],
     b.PublisherID;
 GO
 
@@ -111,11 +112,11 @@ GO
 -- ==================================
 CREATE OR ALTER VIEW vwOperationLog AS
 SELECT 
-    LogID,
-    TableName,
-    Operation,
-    ChangeInfo,
-    CreatedAt
+    LogID AS 'ID',
+    TableName AS 'Tabla',
+    Operation AS 'Operacion ',
+    ChangeInfo AS 'Información de Cambios',
+    CreatedAt AS 'Fecha'
 FROM OperationLog;
 GO
 
@@ -124,16 +125,16 @@ GO
 -- ===========================
 CREATE OR ALTER VIEW vwLibrarians AS
 SELECT 
-    l.LibrarianID,
-    l.UserID,
-    u.Username,
-    l.FirstName,
-    l.LastName,
-    l.Address,
-    l.PhoneNumber, 
-    l.[Shift],
-    l.EnrollmentDate,            
-    l.[Status]                   
+    --l.LibrarianID,
+    --l.UserID,
+    u.Username AS 'Usuario',
+    l.FirstName AS 'Nombre',
+    l.LastName AS 'Apellidos',
+    l.Address AS 'Dirección',
+    l.PhoneNumber AS 'Celular', 
+    l.[Shift] AS 'Turno',
+    CONVERT(VARCHAR(8), l.EnrollmentDate, 3) AS 'Fecha de Ingreso',            
+    l.[Status] AS 'Estado de Empleo'
 FROM Librarian l
 JOIN [User] u ON l.UserID = u.UserID;
 GO
