@@ -1,0 +1,95 @@
+﻿<Page
+    x:Class="LayerFrontEnd.Pages.Credits"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:LayerFrontEnd.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uc="clr-namespace:LayerFrontEnd.Controls.Backgrounds"
+    Title="Credits"
+    d:DesignWidth="1016"
+    mc:Ignorable="d">
+    <ScrollViewer>
+        <Grid>
+            <uc:BCK_Manager />
+            <Image
+                Width="150"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Source="/Images/Icons/logo.png" />
+            <StackPanel>
+                <TextBlock Style="{StaticResource TXT_Header1}" Text="Créditos de la app" />
+                <TextBlock Style="{StaticResource TXT_Header2}" Text="Equipo principal" />
+                <Border Style="{StaticResource BOR_ContBorder}">
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource TXT_Info}" Text="Franco Diaz (Alias dom1nux):" />
+                        <TextBlock Padding="15" Style="{StaticResource TXT_Text}">
+                            Por desarrollar el BackEnd de la app y ser administrador principal de la base de datos del proyecto<LineBreak />
+                            asi mismo crear procesos almacenados, vistas y relacionados para la aplicación.<LineBreak /><LineBreak />
+                            Comentario: "Game Over"</TextBlock>
+                        <TextBlock
+                            Padding="0,15,0,0"
+                            Style="{StaticResource TXT_Info}"
+                            Text="Luis Mejía (Alias galaxym4):" />
+                        <TextBlock Padding="15" Style="{StaticResource TXT_Text}">
+                            Por desarrollar el FrontEnd de la app, creando los estilos y las páginas de la app, por implementar<LineBreak />
+                            la base de datos en la app.<LineBreak />
+                            <LineBreak />
+                            Comentario: "Oigan pibes estoy comiendo pan"</TextBlock>
+                        <TextBlock
+                            Padding="0,15,0,0"
+                            Style="{StaticResource TXT_Info}"
+                            Text="Harold Ramos (Alias H19):" />
+                        <TextBlock Padding="15" Style="{StaticResource TXT_Text}">
+                            Por desarrollar varias de las ventanas de registro de datos, también creando estilos y páginas<LineBreak />
+                            para relacionar con la base de datos en la app.<LineBreak />
+                            <LineBreak />
+                            Comentario: ""</TextBlock>
+                        <TextBlock
+                            Padding="0,15,0,0"
+                            Style="{StaticResource TXT_Info}"
+                            Text="Karol Isac Perez (Alias LinoGuaton):" />
+                        <TextBlock Padding="15" Style="{StaticResource TXT_Text}">
+                            Por ayudar con los estilos de la aplicación y parte del backend.<LineBreak />
+                            <LineBreak />
+                            Comentario: ""</TextBlock>
+                        <TextBlock
+                            Padding="0,15,0,0"
+                            Style="{StaticResource TXT_Info}"
+                            Text="Franklin Casas:" />
+                        <TextBlock Padding="15" Style="{StaticResource TXT_Text}">
+                            Por ayudar con procesos almacenados y relacionados con el backend.<LineBreak />
+                            <LineBreak />
+                            Comentario: ""</TextBlock>
+                    </StackPanel>
+                </Border>
+                <TextBlock Style="{StaticResource TXT_Header2}" Text="Menciones especiales" />
+                <Border Style="{StaticResource BOR_ContBorder}">
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource TXT_Info}" Text="Ana (Alias Huevo Frito):" />
+                        <TextBlock Padding="15" Style="{StaticResource TXT_Text}">
+                            Por ser creadora del logo de la aplicación.
+                        </TextBlock>
+                        <TextBlock
+                            Padding="0,15,0,0"
+                            Style="{StaticResource TXT_Info}"
+                            Text="Fernando y Javier (Alias misho y ñaru):" />
+                        <TextBlock Padding="15" Style="{StaticResource TXT_Text}">
+                            Por ser betaTesters de la aplicación.
+                        </TextBlock>
+                    </StackPanel>
+                </Border>
+                <TextBlock
+                    Margin="0,40,0,0"
+                    Padding="0,6"
+                    VerticalAlignment="Bottom"
+                    Background="DarkSlateGray"
+                    Style="{StaticResource TXT_Text}"
+                    Text="The Skibiditeca Project maded by GalaxyM4 and team with 💖 and ☕"
+                    TextAlignment="Center" />
+            </StackPanel>
+
+
+        </Grid>
+    </ScrollViewer>
+</Page>

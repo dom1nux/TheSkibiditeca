@@ -61,6 +61,12 @@
         <Setter Property="Padding" Value="60,20,80,20" />
     </Style>
 
+    <Style x:Key="TXT_Text" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="LightGray" />
+        <Setter Property="FontFamily" Value="Consolas" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
     <Style x:Key="BT_GraySimpe" TargetType="Button">
         <Setter Property="FontFamily" Value="Consolas" />
         <Style.Resources>
@@ -126,6 +132,9 @@
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Visibility" Value="Hidden" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="True">
+                <Setter Property="Visibility" Value="Visible" />
             </Trigger>
         </Style.Triggers>
     </Style>

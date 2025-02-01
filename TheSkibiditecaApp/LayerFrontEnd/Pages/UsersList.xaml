@@ -13,7 +13,7 @@
     <Grid>
         <uc:BCK_Manager />
         <!--  Header  -->
-        <TextBlock Style="{StaticResource TXT_Header1}" Text="Usuarios" />
+        <TextBlock Style="{StaticResource TXT_Header1}" Text="Lista de usuarios" />
         <Button
             x:Name="bt_newUser"
             Margin="0,10,10,0"
@@ -56,10 +56,13 @@
         </Button>
 
         <Border Margin="40,130,40,100" Style="{StaticResource BOR_ContBorder}">
-            <DataGrid x:Name="dg_users" Style="{StaticResource DG_DataInfo}" />
+            <DataGrid
+                x:Name="dg_users"
+                SelectionChanged="dg_users_SelectionChanged"
+                Style="{StaticResource DG_DataInfo}" />
         </Border>
         <Button
-            x:Name="bt_returnConfirm"
+            x:Name="bt_deleteUser"
             Margin="40,0,0,40"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"

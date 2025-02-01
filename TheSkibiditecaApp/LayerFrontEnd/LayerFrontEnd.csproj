@@ -12,10 +12,13 @@
   <ItemGroup>
     <None Remove="Images\Icons\book.png" />
     <None Remove="Images\Icons\borrow.png" />
+    <None Remove="Images\Icons\exit.png" />
     <None Remove="Images\Icons\image.png" />
+    <None Remove="Images\Icons\info.png" />
     <None Remove="Images\Icons\logo.png" />
     <None Remove="Images\Icons\plus.png" />
     <None Remove="Images\Icons\refresh.png" />
+    <None Remove="Images\Icons\register.png" />
     <None Remove="Images\Icons\users.png" />
     <None Remove="Images\Profiles\AA.jpeg" />
     <None Remove="Images\Profiles\baca.jpeg" />
@@ -40,6 +43,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\Icons\exit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icons\info.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Icons\logo.ico" />
   </ItemGroup>
 
@@ -60,6 +69,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Icons\refresh.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icons\register.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Icons\users.png">

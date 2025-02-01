@@ -39,7 +39,7 @@ namespace LayerData.Database {
         }
 
         public DataView ViewBorrowTable() {
-            return LoadView("Borrow");
+            return LoadView("vwAllBorrows");
         }
 
         public DataView ViewAuthorsTable() {
@@ -55,7 +55,11 @@ namespace LayerData.Database {
         }
 
         public DataView ViewLibrariansTable() {
-            return LoadView("Librarian");
+            return LoadView("vwLibrarians");
+        }
+
+        public DataView ViewRegistersTables() {
+            return LoadView("vwOperationLog");
         }
 
         private DataView LoadView(string table) {

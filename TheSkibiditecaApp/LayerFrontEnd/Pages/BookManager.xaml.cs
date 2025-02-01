@@ -26,7 +26,10 @@ namespace TheSkibiditecaApp.Windows {
             img_profile.Source = librarian.profilePhoto;
             lab_user.Content = librarian.FirstName;
             SkLogic.actualWind.Title = "Administrador";
-            if(SkLogic.librarian!.Role != "Admin") but_users.Visibility = Visibility.Hidden;
+            if(SkLogic.librarian!.Role != "Admin") {
+                sp_buttons.Children.Remove(but_users);
+                sp_buttons.Children.Remove(but_registro);
+            }
             fra_actPage.Navigate(new BorrowList());
         }
 
@@ -40,6 +43,21 @@ namespace TheSkibiditecaApp.Windows {
 
         private void but_users_Click(object sender, RoutedEventArgs e) {
             fra_actPage.Navigate(new UsersList());
+        }
+
+        private void but_registro_Click(object sender, RoutedEventArgs e) {
+            fra_actPage.Navigate(new OperationsLog());
+        }
+
+        private void but_closeSesion_Click(object sender, RoutedEventArgs e) {
+            MessageBoxResult mb = MessageBox.Show("¿Seguro que deseas cerrar sesión?", "Confirmar", MessageBoxButton.YesNo);
+            if(mb == MessageBoxResult.No) return;
+            SkLogic.librarian = null;
+            NavigationService.Navigate(new Login());
+        }
+
+        private void but_credits_Click(object sender, RoutedEventArgs e) {
+            fra_actPage.Navigate(new Credits());
         }
     }
 }

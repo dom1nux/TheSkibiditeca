@@ -17,7 +17,7 @@
             Margin="0,0,0,0"
             HorizontalAlignment="Left"
             Background="#FF4C0092">
-            <StackPanel Margin="0,200,0,30">
+            <StackPanel x:Name="sp_buttons" Margin="0,200,0,30">
                 <Button
                     x:Name="but_newBook"
                     Click="but_newbook_Click"
@@ -42,13 +42,49 @@
                             Content="Préstamos" />
                     </StackPanel>
                 </Button>
-                <Button x:Name="but_users" Style="{StaticResource BT_BarButton}" Click="but_users_Click">
+                <Button
+                    x:Name="but_users"
+                    Click="but_users_Click"
+                    Style="{StaticResource BT_BarButton}">
                     <StackPanel Orientation="Horizontal">
                         <Image Margin="17,0,0,0" Source="/Images/Icons/users.png" />
                         <Label
                             Margin="20,0,0,0"
                             VerticalContentAlignment="Center"
                             Content="Usuarios" />
+                    </StackPanel>
+                </Button>
+                <Button
+                    x:Name="but_registro"
+                    Click="but_registro_Click"
+                    Style="{StaticResource BT_BarButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="17,0,0,0" Source="/Images/Icons/register.png" />
+                        <Label
+                            Margin="20,0,0,0"
+                            VerticalContentAlignment="Center"
+                            Content="Registros" />
+                    </StackPanel>
+                </Button>
+                <Button x:Name="but_credits" Style="{StaticResource BT_BarButton}" Click="but_credits_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="17,0,0,0" Source="/Images/Icons/info.png" />
+                        <Label
+                            Margin="20,0,0,0"
+                            VerticalContentAlignment="Center"
+                            Content="Créditos" />
+                    </StackPanel>
+                </Button>
+                <Button
+                    x:Name="but_closeSesion"
+                    Click="but_closeSesion_Click"
+                    Style="{StaticResource BT_BarButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="17,0,0,0" Source="/Images/Icons/exit.png" />
+                        <Label
+                            Margin="20,0,0,0"
+                            VerticalContentAlignment="Center"
+                            Content="Cerrar sesión" />
                     </StackPanel>
                 </Button>
             </StackPanel>
