@@ -85,7 +85,7 @@ BEGIN
 	DECLARE @PasswordHash VARBINARY(64);
 	DECLARE @UserID INT;
 
-	SET @PasswordHash = HASHBYTES('SHA_512', @Password);
+	SET @PasswordHash = HASHBYTES('SHA2_512', @Password);
 	INSERT INTO [User]
 		(Username, PasswordHash, [Role])
 	VALUES
