@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using LayerData.Objects;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -27,6 +28,16 @@ namespace LayerData.Database {
             }
         }
 
+        public void RegisterUser(Librarian lib, string user, string pass) {
+            try {
+                conn.Open();
+                SqlCommand cmd = DBCommands.SPRegLibrarian(lib, user, pass, conn);
+                cmd.ExecuteNonQuery();
+            } finally { 
+                conn.Close();
+            }
+        }
+
         public DataView ViewBorrowTable() {
             return LoadView("Borrow");
         }
@@ -41,6 +52,10 @@ namespace LayerData.Database {
 
         public DataView ViewStudentsTable() {
             return LoadView("Student");
+        }
+
+        public DataView ViewLibrariansTable() {
+            return LoadView("Librarian");
         }
 
         private DataView LoadView(string table) {

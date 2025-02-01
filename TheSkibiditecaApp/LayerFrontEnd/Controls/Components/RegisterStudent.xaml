@@ -1,0 +1,102 @@
+﻿<UserControl
+    x:Class="LayerFrontEnd.Controls.Components.RegisterStudent"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:LayerFrontEnd.Controls.Components"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <StackPanel Margin="0,0,150,0">
+        <DockPanel HorizontalAlignment="Stretch">
+            <TextBlock Style="{StaticResource TXT_Info}" Text="Nombres" />
+            <TextBox
+                x:Name="tb_Names"
+                Width="250"
+                HorizontalAlignment="Right"
+                Style="{StaticResource TB_Register}" />
+        </DockPanel>
+        <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
+            <TextBlock Style="{StaticResource TXT_Info}" Text="Apellidos" />
+            <TextBox
+                x:Name="tb_lastNames"
+                Width="250"
+                HorizontalAlignment="Right"
+                Style="{StaticResource TB_Register}" />
+        </DockPanel>
+        <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
+            <TextBlock Style="{StaticResource TXT_Info}" Text="Código de carnet" />
+            <TextBox
+                x:Name="tb_code"
+                Width="250"
+                HorizontalAlignment="Right"
+                Style="{StaticResource TB_Register}" />
+        </DockPanel>
+        <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
+            <TextBlock Style="{StaticResource TXT_Info}" Text="Género" />
+            <ComboBox
+                Name="cb_gender"
+                Width="250"
+                HorizontalAlignment="Right"
+                Background="White"
+                Style="{StaticResource CB_Register}">
+                <ComboBoxItem Content="Varón" />
+                <ComboBoxItem Content="Mujer" />
+            </ComboBox>
+        </DockPanel>
+        <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
+            <TextBlock Style="{StaticResource TXT_Info}" Text="Carrera universitaria" />
+            <ComboBox
+                Name="cb_major"
+                Width="250"
+                HorizontalAlignment="Right"
+                Background="White"
+                Style="{StaticResource CB_Register}">
+                <ComboBoxItem Content="Administración" />
+                <ComboBoxItem Content="Agronomía" />
+                <ComboBoxItem Content="Biología y biotecnología" />
+                <ComboBoxItem Content="Contabilidad" />
+                <ComboBoxItem Content="Derecho" />
+                <ComboBoxItem Content="Economía" />
+                <ComboBoxItem Content="Educ. (Ciencias naturales)" />
+                <ComboBoxItem Content="Educ. (Primaria)" />
+                <ComboBoxItem Content="Educ. (Ingles)" />
+                <ComboBoxItem Content="Educ. (Leng. y lit.)" />
+                <ComboBoxItem Content="Educ. (Mat. y física)" />
+                <ComboBoxItem Content="Enfermería" />
+                <ComboBoxItem Content="Industrias Alimentarias" />
+                <ComboBoxItem Content="Ing. Ambiental" />
+                <ComboBoxItem Content="Ing. Civil" />
+                <ComboBoxItem Content="Ing. de Minas" />
+                <ComboBoxItem Content="Ing. de Sistemas" />
+                <ComboBoxItem Content="Ing. en Agronegocios" />
+                <ComboBoxItem Content="Ing. Forestal" />
+                <ComboBoxItem Content="Ing. Geológica" />
+                <ComboBoxItem Content="Ing. Hidráulica" />
+                <ComboBoxItem Content="Ing. Sanitaria" />
+                <ComboBoxItem Content="Ing. Zootecnista" />
+                <ComboBoxItem Content="Medicina Humana" />
+                <ComboBoxItem Content="Medicina Veterinaria" />
+                <ComboBoxItem Content="Obstetricia" />
+                <ComboBoxItem Content="Sociología" />
+                <ComboBoxItem Content="Turismo y Hotelería" />
+            </ComboBox>
+        </DockPanel>
+        <StackPanel
+            Margin="0,20,0,0"
+            HorizontalAlignment="Center"
+            Orientation="Horizontal">
+            <Button
+                x:Name="bt_confirm"
+                Margin="10,0"
+                Style="{StaticResource BT_BlankNoBack}">
+                <TextBlock
+                    Padding="15,5"
+                    VerticalAlignment="Center"
+                    FontSize="15"
+                    Text="Confirmar" />
+            </Button>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

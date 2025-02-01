@@ -2,7 +2,7 @@ USE TheSkibiditeca;
 GO
 
 -- =============================================
--- Descripción: Autentica a un usuario verificando 
+-- Descripciï¿½n: Autentica a un usuario verificando 
 --              si sus credenciales estan presentes
 --              en la tabla Usuario (User) y retorna
 --              el rol correspondiente
@@ -17,12 +17,12 @@ BEGIN
     SET NOCOUNT ON;
 
     BEGIN TRY
-        -- Declaramos las variables que contienen la información
+        -- Declaramos las variables que contienen la informaciï¿½n
         DECLARE @StoredPasswordHash VARBINARY(64);
         DECLARE @Role NVARCHAR(15);
         DECLARE @InputPasswordHash VARBINARY(64);
 
-        -- Recuperamos el hash de la contraseña y rol del usuario
+        -- Recuperamos el hash de la contraseï¿½a y rol del usuario
         SELECT 
             @StoredPasswordHash = PasswordHash,
             @Role = [Role]
@@ -33,18 +33,18 @@ BEGIN
         IF @StoredPasswordHash IS NULL
         BEGIN
             SET @ReturnCode = 1;
-            SET @Message = 'Autenticación Fallida: Nombre de usuario o contraseña invalidos.';
+            SET @Message = 'Autenticaciï¿½n Fallida: Nombre de usuario o contraseï¿½a invalidos.';
             RETURN;
         END
 
-        -- Calculamos el hash de la contraseña ingresada
+        -- Calculamos el hash de la contraseï¿½a ingresada
         SET @InputPasswordHash = HASHBYTES('SHA2_512', @Password);
 
-        -- Se compara los hash de l contraseña ingresada y de la contraseña almacenada
+        -- Se compara los hash de l contraseï¿½a ingresada y de la contraseï¿½a almacenada
         IF @InputPasswordHash = @StoredPasswordHash
         BEGIN
             SET @ReturnCode = 0;
-            SET @Message = 'Autenticación exitosa.';
+            SET @Message = 'Autenticaciï¿½n exitosa.';
 
             -- Optional: Return user details if needed
             SELECT 
@@ -57,7 +57,7 @@ BEGIN
         ELSE
         BEGIN
             SET @ReturnCode = 1;
-            SET @Message = 'Autenticación Fallida: Nombre de usuario o contraseña invalidos.';
+            SET @Message = 'Autenticaciï¿½n Fallida: Nombre de usuario o contraseï¿½a invalidos.';
         END
     END TRY
     BEGIN CATCH
@@ -100,7 +100,33 @@ END;
 GO
 
 -- =============================================
--- Descripción: Crea el login y usuario para la aplicacion
+-- Descripciï¿½n: Registra un usuario pe 
+-- =============================================
+CREATE OR ALTER PROCEDURE spRegisterUser
+    @Username NVARCHAR(50),
+    @Password NVARCHAR(255),
+    @Role NVARCHAR(10),
+    @FirstName NVARCHAR(100),
+    @LastName NVARCHAR(100),
+    @Adress NVARCHAR(255),
+    @PhoneNumber NVARCHAR(15),
+    @Shift NVARCHAR(6)
+AS
+BEGIN
+    DECLARE @PasswordHash VARBINARY(64);
+    DECLARE @UserID INT;
+
+    SET @PasswordHash = HASHBYTES('SHA2_512', @Password);
+    INSERT INTO [User] (Username, PasswordHash, [Role])
+    VALUES (@Username, @PassWordHash, @Role);
+
+    SET @UserID = (SELECT UserID FROM [User] WHERE Username = @Username);
+    INSERT INTO Librarian (UserID, FirstName, LastName, [Address], PhoneNumber, [Shift], EnrollmentDate, [Status])
+    VALUES (@UserID, @FirstName, @LastName, @Adress, @PhoneNumber, @Shift, GETDATE(), 'Activo')
+END;
+
+-- =============================================
+-- Descripciï¿½n: Crea el login y usuario para la aplicacion
 --              y establece los permisos correspondientes.
 -- =============================================
 CREATE LOGIN AppLogin
@@ -115,10 +141,11 @@ DENY SELECT, INSERT, UPDATE, DELETE ON SCHEMA :: dbo TO AppUser;
 GO
 
 GRANT EXECUTE ON OBJECT::spAuthenticateUser TO AppUser;
+GRANT EXECUTE ON OBJECT::spRegisterUser TO AppUser;
 GO
 
 -- =============================================
--- Descripción: Usuario de prueba para probar la autenticacion
+-- Descripciï¿½n: Usuario de prueba para probar la autenticacion
 -- =============================================
 DECLARE @Username NVARCHAR(50) = 'defaultUser';
 DECLARE @Password NVARCHAR(255) = 'Test@1234';

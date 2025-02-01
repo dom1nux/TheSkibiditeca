@@ -1,5 +1,4 @@
-﻿using LayerData;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LayerFrontEnd.Controls.Components {
+namespace LayerFrontEnd.Controls.Components
+{
     /// <summary>
-    /// Lógica de interacción para RegisterAuthor.xaml
+    /// Lógica de interacción para SelectStudent.xaml
     /// </summary>
-    public partial class RegisterAuthor : UserControl {
-        public RegisterAuthor() {
+    public partial class SelectStudent : UserControl
+    {
+        public SelectStudent()
+        {
             InitializeComponent();
-        }
-
-        private void bt_confirm_Click(object sender, RoutedEventArgs e) {
-            
         }
     }
 }

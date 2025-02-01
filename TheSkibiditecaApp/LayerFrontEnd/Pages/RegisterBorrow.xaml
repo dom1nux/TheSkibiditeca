@@ -46,15 +46,19 @@
                     </DockPanel>
                 </StackPanel>
             </Border>
-            <TextBlock Style="{StaticResource TXT_Header2}" Text="Estudiante:" />
+            <DockPanel>
+                <TextBlock Style="{StaticResource TXT_Header2}" Text="Estudiante" />
+                <Button
+                    x:Name="bt_sudentFrame"
+                    Padding="15,8"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Click="bt_sudentFrame_Click"
+                    Content="Nuevo"
+                    Style="{StaticResource BT_GraySimpe}" />
+            </DockPanel>
             <Border Style="{StaticResource BOR_ContBorder}">
-                <DockPanel Margin="0,0,150,0" HorizontalAlignment="Stretch">
-                    <TextBlock Style="{StaticResource TXT_Info}" Text="Código del estudiante" />
-                    <TextBox
-                        x:Name="tb_idStudent"
-                        HorizontalAlignment="Right"
-                        Style="{StaticResource TB_Register}" />
-                </DockPanel>
+                <Frame x:Name="fra_student" />
             </Border>
             <Button
                 x:Name="bt_registerConfirm"

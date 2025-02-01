@@ -1,0 +1,109 @@
+﻿<Page
+    x:Class="LayerFrontEnd.Pages.RegisterUser"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:LayerFrontEnd.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:uc="clr-namespace:LayerFrontEnd.Controls.Backgrounds"
+    Title="RegisterUser"
+    d:DesignHeight="768"
+    d:DesignWidth="1016"
+    mc:Ignorable="d">
+
+    <Grid>
+        <uc:BCK_Manager />
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button
+                    x:Name="bt_back"
+                    Click="bt_back_Click"
+                    Content="&lt;"
+                    Style="{StaticResource BT_Back}" />
+                <TextBlock Style="{StaticResource TXT_Header1}" Text="Nuevo Usuario" />
+            </StackPanel>
+            <TextBlock Style="{StaticResource TXT_Header2}" Text="Información" />
+            <Border Style="{StaticResource BOR_ContBorder}">
+                <StackPanel Margin="0,0,150,0">
+                    <DockPanel>
+                        <TextBlock Style="{StaticResource TXT_Info}" Text="Nombres" />
+                        <TextBox
+                            x:Name="tb_names"
+                            HorizontalAlignment="Right"
+                            Style="{StaticResource TB_Register}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
+                        <TextBlock Style="{StaticResource TXT_Info}" Text="Apellidos" />
+                        <TextBox
+                            x:Name="tb_lastNames"
+                            HorizontalAlignment="Right"
+                            Style="{StaticResource TB_Register}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
+                        <TextBlock Style="{StaticResource TXT_Info}" Text="Dirección" />
+                        <TextBox
+                            x:Name="tb_address"
+                            HorizontalAlignment="Right"
+                            Style="{StaticResource TB_Register}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
+                        <TextBlock Style="{StaticResource TXT_Info}" Text="Número de celular" />
+                        <TextBox
+                            x:Name="tb_phoneNumber"
+                            HorizontalAlignment="Right"
+                            Style="{StaticResource TB_Register}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
+                        <TextBlock Style="{StaticResource TXT_Info}" Text="Turno" />
+                        <ComboBox
+                            x:Name="cb_shift"
+                            Width="250"
+                            HorizontalAlignment="Right"
+                            Style="{StaticResource CB_Register}">
+                            <ComboBoxItem Content="Mañana" />
+                            <ComboBoxItem Content="Tarde" />
+                            <ComboBoxItem Content="Noche" />
+                        </ComboBox>
+                    </DockPanel>
+                </StackPanel>
+            </Border>
+            <TextBlock Style="{StaticResource TXT_Header2}" Text="Cuenta" />
+            <Border Style="{StaticResource BOR_ContBorder}">
+                <StackPanel Margin="0,0,150,0">
+                    <DockPanel>
+                        <TextBlock Style="{StaticResource TXT_Info}" Text="Usuario" />
+                        <TextBox
+                            x:Name="tb_user"
+                            HorizontalAlignment="Right"
+                            Style="{StaticResource TB_Register}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
+                        <TextBlock Style="{StaticResource TXT_Info}" Text="Contraseña" />
+                        <TextBox
+                            x:Name="tb_password"
+                            HorizontalAlignment="Right"
+                            Style="{StaticResource TB_Register}" />
+                    </DockPanel>
+                    <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
+                        <TextBlock Style="{StaticResource TXT_Info}" Text="Rol" />
+                        <ComboBox
+                            x:Name="cb_role"
+                            Width="250"
+                            HorizontalAlignment="Right"
+                            Style="{StaticResource CB_Register}">
+                            <ComboBoxItem Content="Administrador" />
+                            <ComboBoxItem Content="Bibliotecario" />
+                        </ComboBox>
+                    </DockPanel>
+                </StackPanel>
+            </Border>
+            <Button
+                x:Name="bt_registerConfirm"
+                Margin="50"
+                Click="bt_registerConfirm_Click"
+                Style="{StaticResource BT_BlankNoBack}">
+                <TextBlock Padding="30,10" Text="Confirmar" />
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>

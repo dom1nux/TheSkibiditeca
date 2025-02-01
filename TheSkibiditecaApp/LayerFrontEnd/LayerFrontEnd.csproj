@@ -6,14 +6,17 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Images\Icons\logo.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Images\Icons\book.png" />
     <None Remove="Images\Icons\borrow.png" />
     <None Remove="Images\Icons\image.png" />
+    <None Remove="Images\Icons\logo.png" />
     <None Remove="Images\Icons\plus.png" />
     <None Remove="Images\Icons\refresh.png" />
+    <None Remove="Images\Icons\users.png" />
     <None Remove="Images\Profiles\AA.jpeg" />
     <None Remove="Images\Profiles\baca.jpeg" />
     <None Remove="Images\Profiles\caballo.jpg" />
@@ -37,6 +40,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\Icons\logo.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Images\Icons\book.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -46,10 +53,16 @@
     <Resource Include="Images\Icons\image.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\Icons\logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Icons\plus.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Icons\refresh.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Icons\users.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Profiles\AA.jpeg">

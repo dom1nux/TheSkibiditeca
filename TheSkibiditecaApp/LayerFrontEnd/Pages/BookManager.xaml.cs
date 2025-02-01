@@ -25,6 +25,8 @@ namespace TheSkibiditecaApp.Windows {
             InitializeComponent();
             img_profile.Source = librarian.profilePhoto;
             lab_user.Content = librarian.FirstName;
+            SkLogic.actualWind.Title = "Administrador";
+            if(SkLogic.librarian!.Role != "Admin") but_users.Visibility = Visibility.Hidden;
             fra_actPage.Navigate(new BorrowList());
         }
 
@@ -34,6 +36,10 @@ namespace TheSkibiditecaApp.Windows {
 
         private void but_newbook_Click(object sender, RoutedEventArgs e) {
             fra_actPage.Navigate(new RegisterBook());
+        }
+
+        private void but_users_Click(object sender, RoutedEventArgs e) {
+            fra_actPage.Navigate(new UsersList());
         }
     }
 }
