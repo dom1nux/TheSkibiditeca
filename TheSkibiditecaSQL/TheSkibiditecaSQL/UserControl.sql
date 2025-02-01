@@ -36,19 +36,22 @@ GRANT EXECUTE ON OBJECT::spAuthenticateUser TO spExecutorRole;
 GRANT EXECUTE ON OBJECT::spRegisterUser TO spExecutorRole;
 GRANT EXECUTE ON OBJECT::spProcessLending TO spExecutorRole;
 GRANT EXECUTE ON OBJECT::spProcessReturn TO spExecutorRole;
+GRANT EXECUTE ON OBJECT::spAddBook TO spExecutorRole;
+GRANT EXECUTE ON OBJECT::spAddAuthor TO spExecutorRole;
+GRANT EXECUTE ON OBJECT::spAddPublisher TO spExecutorRole;
 GO
 
-GRANT SELECT ON OBJECT::vwStudentBorrowHistory TO viewReaderRole;
-GRANT SELECT ON OBJECT::vwPublisherInfo TO viewReaderRole;
-GRANT SELECT ON OBJECT::vwAuthorInfo TO viewReaderRole;
-GRANT SELECT ON OBJECT::vwStudentInfo TO viewReaderRole;
-GRANT SELECT ON OBJECT::vwLibrarianInfo TO viewReaderRole;
-GRANT SELECT ON OBJECT::vwOperationLog TO viewReaderRole;
-GRANT SELECT ON OBJECT::vwBookDetails TO viewReaderRole;
 GRANT SELECT ON OBJECT::vwPendingBorrows TO viewReaderRole;
 GRANT SELECT ON OBJECT::vwReturnedBorrows TO viewReaderRole;
 GRANT SELECT ON OBJECT::vwOverdueBorrows TO viewReaderRole;
 GRANT SELECT ON OBJECT::vwAllBorrows TO viewReaderRole;
+GRANT SELECT ON OBJECT::vwStudentBorrowHistory TO viewReaderRole;
+GRANT SELECT ON OBJECT::vwBookDetails TO viewReaderRole;
+GRANT SELECT ON OBJECT::vwLibrarianInfo TO viewReaderRole;
+GRANT SELECT ON OBJECT::vwStudentInfo TO viewReaderRole;
+GRANT SELECT ON OBJECT::vwPublisherInfo TO viewReaderRole;
+GRANT SELECT ON OBJECT::vwAuthorInfo TO viewReaderRole;
+GRANT SELECT ON OBJECT::vwOperationLog TO viewReaderRole;
 GO
 
 -- =============================================
