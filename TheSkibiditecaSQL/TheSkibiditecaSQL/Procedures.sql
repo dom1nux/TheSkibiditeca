@@ -103,10 +103,44 @@ END;
 GO
 
 -- =============================================================================
+-- Descripción: Procesa los prestamos de libros en la tabla prestamos (Borrow) 
+-- =============================================================================
+CREATE OR ALTER PROCEDURE spProcessLending
+    @StudentID INT,
+    @BookID INT,
+    @BorrowDate DATE = NULL
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    IF @BorrowDate IS NULL
+        SET @BorrowDate = GETDATE();
+
+    BEGIN TRY
+        BEGIN TRANSACTION;
+        
+        INSERT INTO Borrow (StudentID, BookID, BorrowDate, BorrowStatus)
+        VALUES (@StudentID, @BookID, @BorrowDate, 'Por Devolver');
+        
+        DECLARE @NewBorrowID INT = SCOPE_IDENTITY();
+        
+        COMMIT TRANSACTION;
+        
+        SELECT @NewBorrowID AS BorrowID;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRANSACTION;
+        DECLARE @ErrorMessage NVARCHAR(MAX) = ERROR_MESSAGE();
+        RAISERROR(@ErrorMessage, 16, 1);
+    END CATCH
+END;
+GO
+
+-- =============================================================================
 -- Descripción: Procesa los retornos de libros en la tabla devolucion (Return) 
 --              previamente registrados en la tabla prestamos (Borrow).
 -- =============================================================================
-CREATE OR ALTER PROCEDURE ProcessReturn
+CREATE OR ALTER PROCEDURE spProcessReturn
     @BorrowID INT
 AS
 BEGIN
@@ -143,35 +177,3 @@ BEGIN
     END CATCH
 END;
 GO
-
--- =============================================
--- Descripción: Crea el login y usuario para la aplicacion
---              y establece los permisos correspondientes.
--- =============================================
-CREATE LOGIN AppLogin
-WITH PASSWORD = 'YourSecurePassword!123';
-GO
-
-CREATE USER AppUser
-FOR LOGIN AppLogin;
-GO
-
-DENY SELECT, INSERT, UPDATE, DELETE ON SCHEMA :: dbo TO AppUser;
-GO
-
-GRANT EXECUTE ON OBJECT::spAuthenticateUser TO AppUser;
-GRANT EXECUTE ON OBJECT::spRegisterUser TO AppUser;
-GO
-
--- =============================================
--- Descripci�n: Usuario de prueba para probar la autenticacion
--- =============================================
-DECLARE @Username NVARCHAR(50) = 'defaultUser';
-DECLARE @Password NVARCHAR(255) = 'Test@1234';
-DECLARE @Role NVARCHAR(15) = 'Admin';
-
-DECLARE @PasswordHash VARBINARY(64);
-SET @PasswordHash = HASHBYTES('SHA2_512', @Password);
-
-INSERT INTO [User] (Username, PasswordHash, [Role])
-VALUES (@Username, @PasswordHash, @Role);
