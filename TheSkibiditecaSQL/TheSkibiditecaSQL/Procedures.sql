@@ -68,6 +68,37 @@ BEGIN
 END;
 GO
 
+CREATE OR ALTER PROCEDURE spRegisterUser
+	@Username NVARCHAR(50),
+	@Password NVARCHAR(255),
+	@Role NVARCHAR(10),
+	@FirstName NVARCHAR(100),
+	@LastName NVARCHAR(100),
+	@Address NVARCHAR(255),
+	@PhoneNumber NVARCHAR(15),
+	@Shift NVARCHAR(9)
+AS
+BEGIN
+	DECLARE @PasswordHash VARBINARY(64);
+	DECLARE @UserID INT;
+
+	SET @PasswordHash = HASHBYTES('SHA_512', @Password);
+	INSERT INTO [User]
+		(Username, PasswordHash, [Role])
+	VALUES
+		(@Username, @PasswordHash, @Role);
+
+	SET @UserID = (
+		SELECT UserID
+		FROM [User]
+		WHERE Username = @Username);
+	INSERT INTO Librarian
+		(UserID, FirstName, LastName, [Address], PhoneNumber, [Shift], EnrollmentDate, [Status])
+	VALUES
+		(@UserID, @FirstName, @LastName, @Address, @PhoneNumber, @Shift, GETDATE(), 'Activo')
+END;
+GO
+
 -- =============================================
 -- Descripción: Crea el login y usuario para la aplicacion
 --              y establece los permisos correspondientes.
