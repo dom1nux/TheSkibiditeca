@@ -123,7 +123,7 @@ GO
 -- ===========================
 -- Vista para bibliotecarios
 -- ===========================
-CREATE OR ALTER VIEW vwLibrarians AS
+CREATE OR ALTER VIEW vwLibrarianInfo AS
 SELECT 
     --l.LibrarianID,
     --l.UserID,
@@ -142,15 +142,35 @@ GO
 -- ========================
 -- Vista para estudiantes
 -- ========================
-CREATE OR ALTER VIEW vwStudents AS
+CREATE OR ALTER VIEW vwStudentInfo AS
 SELECT 
-    s.StudentID,
-    s.UserID,
-    u.Username,
-    s.FirstName,
-    s.LastName,
-    s.Gender,
-    s.Major
+    s.StudentID AS 'ID',
+    --u.Username,
+    s.FirstName AS 'Nombre',
+    s.LastName AS 'Apellidos',
+    s.Gender AS 'Sexo',
+    s.Major AS 'Carrera'
 FROM Student s
 LEFT JOIN [User] u ON s.UserID = u.UserID;
+GO
+
+-- ====================
+-- Vista para autores
+-- ====================
+CREATE OR ALTER VIEW vwAuthorInfo AS
+SELECT 
+    FirstName + ' ' + LastName AS 'Nombre del Autor'
+FROM Author;
+GO
+
+-- ====================
+-- Vista para autores
+-- ====================
+CREATE OR ALTER VIEW vwPublisherInfo AS
+SELECT 
+    PublisherID,
+    -- Combine Name, Address, PhoneNumber, and Email. 
+    [Name] +
+      ISNULL(', Email: ' + Email, '') AS 'Detalles de Editorial'
+FROM Publisher;
 GO
