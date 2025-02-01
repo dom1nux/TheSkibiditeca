@@ -9,7 +9,7 @@ SELECT
     bk.Title AS 'Título',
     s.FirstName + ' ' + s.LastName AS 'Estudiante',
     b.BorrowDate AS 'Fecha de Prestamo',
-    b.BorrowStatus AS 'Estado del Prestamo'
+    b.BorrowStatus AS 'Estado de Prestamo'
 FROM Borrow b
 JOIN Book bk ON b.BookID = bk.BookID
 JOIN Student s ON b.StudentID = s.StudentID
@@ -163,9 +163,9 @@ SELECT
 FROM Author;
 GO
 
--- ====================
--- Vista para autores
--- ====================
+-- ========================
+-- Vista para editoriales
+-- ========================
 CREATE OR ALTER VIEW vwPublisherInfo AS
 SELECT 
     PublisherID,
