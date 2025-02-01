@@ -40,7 +40,13 @@
           <AssociatedConnUserName>sa</AssociatedConnUserName>
           <FullPath>Schema.sql</FullPath>
         </FileNode>
-        <FileNode Name="SQLQuery1.sql">
+        <FileNode Name="UserControl.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:161.132.37.46,1433:False:sa</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>161.132.37.46,1433</AssociatedConnSrvName>
+          <AssociatedConnUserName>sa</AssociatedConnUserName>
+          <FullPath>UserControl.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Views.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:161.132.37.46,1433:False:sa</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>161.132.37.46,1433</AssociatedConnSrvName>
           <AssociatedConnUserName>sa</AssociatedConnUserName>
