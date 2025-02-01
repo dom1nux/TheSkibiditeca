@@ -86,6 +86,7 @@ GO
 -- ============================
 CREATE OR ALTER VIEW vwBookDetails AS
 SELECT 
+    b.BookID,
     b.Title AS 'Título',
     b.PublicationYear AS 'Año de Publicación',
     b.ISBN,
