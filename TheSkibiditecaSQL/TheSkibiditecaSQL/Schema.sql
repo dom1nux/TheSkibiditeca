@@ -157,6 +157,7 @@ GO
 CREATE TABLE [Return] (
     ReturnID INT PRIMARY KEY IDENTITY,
     BorrowID INT NOT NULL,
+	ReturnDate DATE DEFAULT GETDATE(),
 	BookState NVARCHAR(50) NOT NULL,
 	Observation NVARCHAR(MAX) NULL,
     CONSTRAINT FK_Return_Borrow
@@ -167,6 +168,12 @@ CREATE TABLE [Return] (
         CHECK(BookState IN ('Bueno', 'Regular', 'Malo'))
 );
 GO
+
+/*
+ALTER TABLE [Return]
+ALTER COLUMN ReturnDate DATE NULL;
+GO
+*/
 
 ------------------------------------------------
 -- TABLE: RegistroOperaciones
