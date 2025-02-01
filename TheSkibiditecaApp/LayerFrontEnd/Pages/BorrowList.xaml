@@ -55,8 +55,29 @@
                 </StackPanel>
             </Button.Content>
         </Button>
+        <StackPanel Margin="40,100" Orientation="Horizontal">
+            <Button
+                x:Name="bt_allBorrows"
+                HorizontalAlignment="Left"
+                VerticalAlignment="TOp"
+                Content="Todos"
+                Style="{StaticResource BT_GreenBack}" Click="bt_allBorrows_Click" />
+            <Button
+                Margin="40,0"
+                x:Name="bt_pending"
+                HorizontalAlignment="Left"
+                VerticalAlignment="TOp"
+                Content="Pendientes"
+                Style="{StaticResource BT_GreenBack}" Click="bt_pending_Click" />
+            <Button
+                x:Name="bt_completed"
+                HorizontalAlignment="Left"
+                VerticalAlignment="TOp"
+                Content="Completados"
+                Style="{StaticResource BT_GreenBack}" Click="bt_completed_Click" />
+        </StackPanel>
 
-        <Border Margin="40,130,40,100" Style="{StaticResource BOR_ContBorder}">
+        <Border Margin="40,150,40,100" Style="{StaticResource BOR_ContBorder}">
             <DataGrid
                 x:Name="dg_borrows"
                 SelectionChanged="DataGrid_Selected"

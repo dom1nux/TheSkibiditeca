@@ -12,6 +12,9 @@
         <DataGrid
             x:Name="dg_authorData"
             Height="160"
+            Loaded="dg_authorData_Loaded"
+            SelectionChanged="dg_authorData_SelectionChanged"
+            SelectionMode="Extended"
             Style="{StaticResource DG_DataInfo}" />
         <TextBox
             x:Name="tb_authorInfo"

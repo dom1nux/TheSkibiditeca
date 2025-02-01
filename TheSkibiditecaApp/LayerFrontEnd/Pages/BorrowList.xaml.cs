@@ -1,6 +1,7 @@
 ﻿using LayerData;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,9 +22,15 @@ namespace LayerFrontEnd.Pages {
     /// Lógica de interacción para BorrowList.xaml
     /// </summary>
     public partial class BorrowList : Page {
+        public Func<DataView> DataSource;
         public BorrowList() {
             InitializeComponent();
-            dg_borrows.ItemsSource = SkLogic.database.ViewBorrowTable();
+            DataSource = SkLogic.database.ViewBorrow;
+            updateDataSource();
+        }
+
+        private void updateDataSource() {
+            dg_borrows.ItemsSource = DataSource();
         }
 
         private void bt_newBorrow_Click(object sender, RoutedEventArgs e) {
@@ -31,12 +38,27 @@ namespace LayerFrontEnd.Pages {
         }
 
         private void bt_updateBorrows_Click(object sender, RoutedEventArgs e) {
-            dg_borrows.ItemsSource = SkLogic.database.ViewBorrowTable();
+            updateDataSource();
         }
 
         private void DataGrid_Selected(object sender, SelectionChangedEventArgs e) {
-            bt_returnConfirm.Visibility = Visibility.Visible;
-            bt_deleteBorrow.Visibility = Visibility.Visible;
+            bt_returnConfirm.IsEnabled = true;
+            bt_deleteBorrow.IsEnabled = true;
+        }
+
+        private void bt_allBorrows_Click(object sender, RoutedEventArgs e) {
+            DataSource = SkLogic.database.ViewBorrow;
+            updateDataSource();
+        }
+
+        private void bt_pending_Click(object sender, RoutedEventArgs e) {
+            DataSource = SkLogic.database.ViewPendindBorrows;
+            updateDataSource();
+        }
+
+        private void bt_completed_Click(object sender, RoutedEventArgs e) {
+            DataSource = SkLogic.database.ViewCompleteBorrows;
+            updateDataSource();
         }
     }
 }

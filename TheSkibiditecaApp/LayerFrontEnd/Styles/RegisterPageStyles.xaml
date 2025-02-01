@@ -40,6 +40,7 @@
 
     <Style x:Key="DG_DataInfo" TargetType="DataGrid">
         <Setter Property="Background" Value="{x:Null}" />
+        <Setter Property="SelectionMode" Value="Single" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="IsReadOnly" Value="True" />
         <Setter Property="ColumnWidth" Value="*" />

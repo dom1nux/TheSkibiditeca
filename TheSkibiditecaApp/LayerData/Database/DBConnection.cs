@@ -38,27 +38,55 @@ namespace LayerData.Database {
             }
         }
 
-        public DataView ViewBorrowTable() {
+        public void RegisterBorrow(string stId, string bookId, DateTime date) {
+            try {
+                conn.Open();
+                SqlCommand cmd = DBCommands.SPRegBorrow(stId, bookId, date, conn);
+                cmd.ExecuteNonQuery();
+            } finally {
+                conn.Close();
+            }
+        }
+
+        public void ReturnedBorrow(string borrowId) {
+            try {
+                conn.Open();
+                SqlCommand cmd = DBCommands.SPReturnBorrow(borrowId, conn);
+                cmd.ExecuteNonQuery();
+            } finally {
+                conn.Close();
+            }
+        }
+
+        public DataView ViewBorrow() {
             return LoadView("vwAllBorrows");
         }
 
-        public DataView ViewAuthorsTable() {
-            return LoadView("Author");
+        public DataView ViewPendindBorrows() {
+            return LoadView("vwPendingBorrows");
         }
 
-        public DataView ViewEditorialsTable() {
-            return LoadView("Publisher");
+        public DataView ViewCompleteBorrows() {
+            return LoadView("vwReturnedBorrows");
         }
 
-        public DataView ViewStudentsTable() {
-            return LoadView("Student");
+        public DataView ViewAuthors() {
+            return LoadView("vwAuthorInfo");
         }
 
-        public DataView ViewLibrariansTable() {
-            return LoadView("vwLibrarians");
+        public DataView ViewEditorials() {
+            return LoadView("vwPublisherInfo");
         }
 
-        public DataView ViewRegistersTables() {
+        public DataView ViewStudents() {
+            return LoadView("vwStudentInfo");
+        }
+
+        public DataView ViewLibrarians() {
+            return LoadView("vwLibrarianInfo");
+        }
+
+        public DataView ViewRegisters() {
             return LoadView("vwOperationLog");
         }
 

@@ -21,7 +21,7 @@ namespace LayerFrontEnd.Pages {
     public partial class UsersList : Page {
         public UsersList() {
             InitializeComponent();
-            dg_users.ItemsSource = SkLogic.database.ViewLibrariansTable();
+            dg_users.ItemsSource = SkLogic.database.ViewLibrarians();
         }
 
         private void bt_newUser_Click(object sender, RoutedEventArgs e) {
@@ -29,7 +29,8 @@ namespace LayerFrontEnd.Pages {
         }
 
         private void bt_updateUsers_Click(object sender, RoutedEventArgs e) {
-            dg_users.ItemsSource = SkLogic.database.ViewLibrariansTable();
+            dg_users.ItemsSource = SkLogic.database.ViewLibrarians();
+            bt_deleteUser.IsEnabled = false;
         }
 
         private void dg_users_SelectionChanged(object sender, SelectionChangedEventArgs e) {

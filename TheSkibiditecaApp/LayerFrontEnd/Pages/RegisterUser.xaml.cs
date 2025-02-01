@@ -37,9 +37,13 @@ namespace LayerFrontEnd.Pages {
                 Role = (cb_role.Text == "Administrador" ? "Admin" : "Librarian"),
                 Shift = cb_shift.Text,
             };
-
-            SkLogic.database.RegisterUser(lib, tb_user.Text, tb_password.Text);
-            NavigationService.GoBack();
+            try {
+                SkLogic.database.RegisterUser(lib, tb_user.Text, tb_password.Text);
+                NavigationService.GoBack();
+            } catch(Exception ex) {
+                MessageBox.Show(ex.Message, "Error");
+            }
+            
         }
     }
 }

@@ -21,11 +21,11 @@ namespace LayerFrontEnd.Pages {
     public partial class OperationsLog : Page {
         public OperationsLog() {
             InitializeComponent();
-            dg_operationsLogs.ItemsSource = SkLogic.database.ViewRegistersTables();
+            dg_operationsLogs.ItemsSource = SkLogic.database.ViewRegisters();
         }
 
         private void bt_updateGrid_Click(object sender, RoutedEventArgs e) {
-            dg_operationsLogs.ItemsSource = SkLogic.database.ViewRegistersTables();
+            dg_operationsLogs.ItemsSource = SkLogic.database.ViewRegisters();
         }
     }
 }

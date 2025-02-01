@@ -12,6 +12,8 @@
         <DataGrid
             x:Name="dg_pubData"
             Height="160"
+            Loaded="Dg_pubData_Loaded"
+            SelectionChanged="dg_pubData_SelectionChanged"
             Style="{StaticResource DG_DataInfo}" />
         <TextBox
             x:Name="tb_pubInfo"
