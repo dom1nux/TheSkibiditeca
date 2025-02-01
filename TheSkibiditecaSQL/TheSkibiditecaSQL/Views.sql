@@ -134,7 +134,8 @@ SELECT
     l.PhoneNumber AS 'Celular', 
     l.[Shift] AS 'Turno',
     CONVERT(VARCHAR(8), l.EnrollmentDate, 3) AS 'Fecha de Ingreso',            
-    l.[Status] AS 'Estado de Empleo'
+    l.[Status] AS 'Estado de Empleo',
+	u.Role AS 'Rol'
 FROM Librarian l
 JOIN [User] u ON l.UserID = u.UserID;
 GO
