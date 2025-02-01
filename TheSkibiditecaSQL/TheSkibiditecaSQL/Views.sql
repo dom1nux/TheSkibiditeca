@@ -160,7 +160,7 @@ GO
 -- ====================
 CREATE OR ALTER VIEW vwAuthorInfo AS
 SELECT
-    StudentID,
+    AuhorID,
     FirstName + ' ' + LastName AS 'Nombre del Autor'
 FROM Author;
 GO
