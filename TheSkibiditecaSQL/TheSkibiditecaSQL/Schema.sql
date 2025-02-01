@@ -40,7 +40,7 @@ GO
 -- TABLA: Estudiante
 ------------------------------------------------
 CREATE TABLE Student (
-    StudentID INT PRIMARY KEY IDENTITY,
+    StudentID INT PRIMARY KEY,
 	UserID INT NULL,
     FirstName NVARCHAR(100) NOT NULL,
     LastName NVARCHAR(100) NOT NULL,
@@ -60,7 +60,7 @@ GO
 CREATE TABLE Author (
     AuthorID INT PRIMARY KEY IDENTITY,
     FirstName NVARCHAR(100) NOT NULL,
-    LastName NVARCHAR(100) NOT NULL,
+    LastName NVARCHAR(100) NOT NULL
 );
 GO
 
@@ -81,7 +81,7 @@ GO
 ------------------------------------------------
 CREATE TABLE Genre (
     GenreID INT PRIMARY KEY IDENTITY,
-    Name NVARCHAR(100) NOT NULL
+    Name NVARCHAR(100) NOT NULL UNIQUE
 );
 GO
 
@@ -137,7 +137,7 @@ CREATE TABLE Borrow (
     StudentID INT NOT NULL,
     BookID INT NOT NULL,
     BorrowDate DATE NOT NULL,
-	BorrowStatus NVARCHAR(12) NOT NULL DEFAULT ('Por Devolver'),
+	BorrowStatus NVARCHAR(12) NOT NULL DEFAULT 'Por Devolver',
     CONSTRAINT FK_Borrow_User
         FOREIGN KEY (StudentID)
         REFERENCES Student(StudentID)
@@ -158,13 +158,13 @@ CREATE TABLE [Return] (
     ReturnID INT PRIMARY KEY IDENTITY,
     BorrowID INT NOT NULL,
 	BookState NVARCHAR(50) NOT NULL,
-	Observation TEXT NULL,
+	Observation NVARCHAR(MAX) NULL,
     CONSTRAINT FK_Return_Borrow
         FOREIGN KEY (BorrowID)
         REFERENCES Borrow(BorrowID)
         ON DELETE CASCADE,
 	CONSTRAINT CK_Book_State
-        CHECK(BookState IN ('Bueno', 'Regular', 'Malo')),
+        CHECK(BookState IN ('Bueno', 'Regular', 'Malo'))
 );
 GO
 
