@@ -52,6 +52,7 @@ GRANT SELECT ON OBJECT::vwStudentInfo TO viewReaderRole;
 GRANT SELECT ON OBJECT::vwPublisherInfo TO viewReaderRole;
 GRANT SELECT ON OBJECT::vwAuthorInfo TO viewReaderRole;
 GRANT SELECT ON OBJECT::vwOperationLog TO viewReaderRole;
+GRANT SELECT ON OBJECT::vwAvailableBooks TO viewReaderRole;
 GO
 
 -- =============================================

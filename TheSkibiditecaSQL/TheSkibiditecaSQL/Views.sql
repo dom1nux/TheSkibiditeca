@@ -16,7 +16,7 @@ JOIN Student s ON b.StudentID = s.StudentID
 WHERE b.BorrowStatus = 'Por Devolver';
 GO
 
--- =================================================
+-- =============================================	====
 -- Vistas para prestamos con devolución completada
 -- =================================================
 CREATE OR ALTER VIEW vwReturnedBorrows AS
@@ -105,6 +105,33 @@ GROUP BY
     b.[Language],
     p.[Name],
     b.PublisherID;
+GO
+
+-- =============================
+-- Vista de libros disponibles
+-- =============================
+CREATE OR ALTER VIEW vwAvailableBooks AS
+SELECT 
+    b.Title AS 'Título',
+    b.PublicationYear AS 'Año de Publicación',
+    b.ISBN,
+    b.Pages AS 'Páginas',
+    b.[Language] AS 'Idioma',
+    p.[Name] AS 'Editorial',
+    STRING_AGG(CONCAT(a.FirstName, ' ', a.LastName), ', ') AS 'Autores'
+FROM Book b
+LEFT JOIN Borrow brw ON b.BookID = brw.BookID
+LEFT JOIN Publisher p ON b.PublisherID = p.PublisherID
+LEFT JOIN Authored au ON b.BookID = au.BookID
+LEFT JOIN Author a ON au.AuthorID = a.AuthorID
+WHERE (brw.BorrowStatus IS NULL OR brw.BorrowStatus != 'Por Devolver')
+GROUP BY 
+    b.Title,
+    b.PublicationYear,
+    b.ISBN,
+    b.Pages,
+    b.[Language],
+    p.[Name];
 GO
 
 -- ==================================
