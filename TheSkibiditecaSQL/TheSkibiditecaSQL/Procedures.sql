@@ -299,3 +299,33 @@ BEGIN
     END CATCH
 END;
 GO
+
+-- ==================================================================
+-- Descripción: Agrega estudiantes
+-- ==================================================================
+CREATE OR ALTER PROCEDURE spAddStudent
+    @StudentID INT,
+    @Name NVARCHAR(255),
+    @LastName NVARCHAR(255),
+    @Gender NVARCHAR(5),
+    @Major NVARCHAR(255)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    BEGIN TRY
+        BEGIN TRANSACTION;
+        
+        INSERT INTO Student (StudentID, FirstName, LastName, Gender, Major)
+        VALUES (@StudentID, @Name, @LastName, @Gender, @Major);
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        IF @@TRANCOUNT > 0
+            ROLLBACK TRANSACTION;
+        
+        DECLARE @ErrorMessage NVARCHAR(4000) = ERROR_MESSAGE();
+        RAISERROR(@ErrorMessage, 16, 1);
+    END CATCH
+END;
+GO
