@@ -40,6 +40,7 @@ GRANT EXECUTE ON OBJECT::spAddBook TO spExecutorRole;
 GRANT EXECUTE ON OBJECT::spAddAuthor TO spExecutorRole;
 GRANT EXECUTE ON OBJECT::spAddPublisher TO spExecutorRole;
 GRANT EXECUTE ON OBJECT::spAddStudent TO spExecutorRole;
+GRANT EXECUTE ON OBJECT::spConnectBookAuthor TO spExecutorRole;
 GO
 
 GRANT SELECT ON OBJECT::vwPendingBorrows TO viewReaderRole;
