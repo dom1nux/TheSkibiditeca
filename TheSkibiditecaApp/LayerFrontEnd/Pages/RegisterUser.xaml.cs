@@ -32,7 +32,7 @@ namespace LayerFrontEnd.Pages {
             TextBox[] texboxes = { tb_address, tb_names, tb_lastNames, tb_phoneNumber };
             foreach(TextBox texbox in texboxes) {
                 if(texbox.Text == "") {
-                    MessageBox.Show("Los cambos no deben estar vacios");
+                    MessageBox.Show("Los campos no deben estar vacios");
                     return;
                 }
             }
