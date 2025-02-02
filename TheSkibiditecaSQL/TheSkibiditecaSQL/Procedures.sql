@@ -141,7 +141,9 @@ GO
 --              previamente registrados en la tabla prestamos (Borrow).
 -- =============================================================================
 CREATE OR ALTER PROCEDURE spProcessReturn
-    @BorrowID INT
+    @BorrowID INT,
+	@BookState NVARCHAR(50),
+	@Observation NVARCHAR(MAX) NULL
 AS
 BEGIN
     SET NOCOUNT ON;
@@ -161,8 +163,8 @@ BEGIN
             RETURN;
         END;
         
-        INSERT INTO [Return](BorrowID, ReturnDate)
-        VALUES (@BorrowID, GETDATE());
+        INSERT INTO [Return](BorrowID, ReturnDate, BookState, Observation)
+        VALUES (@BorrowID, GETDATE(), @BookState, @Observation);
         
         UPDATE Borrow
         SET BorrowStatus = 'Devuelto'
