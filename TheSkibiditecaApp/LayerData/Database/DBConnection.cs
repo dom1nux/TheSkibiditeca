@@ -88,6 +88,22 @@ namespace LayerData.Database {
             }
         }
 
+        public void RegisterBook(Book b, string[] authors) {
+            try {
+                conn.Open();
+                SqlCommand cmd = DBCommands.SPAddBook(b, conn);
+                int id = (int)cmd.ExecuteScalar();
+
+                foreach(string author in authors) {
+                    SqlCommand cmdA = DBCommands.SPConBookAuthor(id.ToString(), author, conn);
+                    cmdA.ExecuteNonQuery();
+                }
+                
+            } finally {
+                conn.Close();
+            }
+        }
+
         public DataView ViewBooks() {
             return LoadView("vwAvailableBooks");
         }

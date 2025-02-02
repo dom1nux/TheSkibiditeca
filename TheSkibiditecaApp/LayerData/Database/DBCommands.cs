@@ -100,8 +100,24 @@ namespace LayerData.Database {
             return cmd;
         }
 
+        public static SqlCommand SPConBookAuthor(string book, string author, SqlConnection conn) {
+            string consult = "EXEC [dbo].[spConnectBookAuthor]" +
+                $"@BookId = {book}, " +
+                $"@AuthorID = {author}";
+            SqlCommand cmd = new(consult, conn);
+            return cmd;
+        }
+
         public static SqlCommand SPAddBook(Book b, SqlConnection conn) {
-            string consult = "EXEC [dbo].[spAddBook]";
+            string consult = "EXEC [dbo].[spAddBook] " +
+                $"@Title = '{b.Title}', " +
+                $"@Cover = NULL, " +
+                $"@PublicationYear = {b.AgePub}, " +
+                $"@GenreID = NULL, " +
+                $"@ISBN = '{b.ISBN}', " +
+                $"@PublisherID = {b.PublisherID}, " +
+                $"@Pages = {b.cantPages}, " +
+                $"@Language = {b.Languaje}";
             SqlCommand cmd = new(consult, conn);
             return cmd;
         }

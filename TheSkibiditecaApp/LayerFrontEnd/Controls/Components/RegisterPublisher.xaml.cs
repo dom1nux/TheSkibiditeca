@@ -29,7 +29,7 @@ namespace LayerFrontEnd.Controls.Components{
             TextBox[] texboxes = {tb_editAdress, tb_editMail, tb_editName, tb_editPhone };
             foreach(TextBox texbox in texboxes) { 
                 if(texbox.Text == "") {
-                    MessageBox.Show("Los cambos no deben estar vacios");
+                    MessageBox.Show("Los campos no deben estar vacios");
                     return;
                 }
             }

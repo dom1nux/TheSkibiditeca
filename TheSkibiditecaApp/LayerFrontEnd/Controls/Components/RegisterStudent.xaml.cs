@@ -62,7 +62,7 @@ namespace LayerFrontEnd.Controls.Components {
 
             try {
                 SkLogic.database.RegisterStudent(s);
-                Finished!.Invoke(this, e);
+                Finished?.Invoke(this, e);
             } catch(Exception ex) {
                 MessageBox.Show(ex.Message, "Error");
             }

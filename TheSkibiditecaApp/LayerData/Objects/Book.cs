@@ -9,6 +9,7 @@ namespace LayerData.Objects {
         public required string Title;
         public required string Languaje;
         public required string Genre;
+        public required string PublisherID;
         public required string AgePub;
         public required string ISBN;
         public required int cantPages;

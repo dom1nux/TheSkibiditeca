@@ -35,8 +35,8 @@ namespace TheSkibiditecaApp.Windows{
             } else {
                 RegisterStudent rs = new();
                 rs.Finished += (sender, e) => {
-                    st.updateDataSource();
                     fra_student.Navigate(st);
+                    st.updateDataSource();
                     bt_sudentFrame.Content = "Nuevo";
                     fraStuNew = !fraStuNew;
                 };
@@ -49,7 +49,7 @@ namespace TheSkibiditecaApp.Windows{
 
         private void bt_registerConfirm_Click(object sender, RoutedEventArgs e) {
             try {
-                if(sb.tb_bookInfo.Text == "" || sb.tb_bookInfo.Text == "") {
+                if(st.tb_stuInfo.Text == "" || sb.tb_bookInfo.Text == "") {
                     MessageBox.Show("Selecciona todos los elementos pes.");
                     return;
                 }

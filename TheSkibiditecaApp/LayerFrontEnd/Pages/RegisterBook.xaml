@@ -22,14 +22,14 @@
                     <DockPanel>
                         <TextBlock Style="{StaticResource TXT_Info}" Text="Título del libro" />
                         <TextBox
-                            x:Name="tb_idBook"
+                            x:Name="tb_title"
                             HorizontalAlignment="Right"
                             Style="{StaticResource TB_Register}" />
                     </DockPanel>
                     <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
                         <TextBlock Style="{StaticResource TXT_Info}" Text="Idioma" />
                         <TextBox
-                            x:Name="tb_titleBook"
+                            x:Name="tb_languaje"
                             HorizontalAlignment="Right"
                             Style="{StaticResource TB_Register}" />
                     </DockPanel>
@@ -76,8 +76,9 @@
                             Padding="15,8"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
+                            Click="bt_authorFrame_Click"
                             Content="Nuevo"
-                            Style="{StaticResource BT_GraySimpe}" Click="bt_authorFrame_Click" />
+                            Style="{StaticResource BT_GraySimpe}" />
                     </DockPanel>
                     <Border Style="{StaticResource BOR_ContBorder}">
                         <Frame x:Name="fra_author" />
@@ -91,8 +92,9 @@
                             Padding="15,8"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
+                            Click="bt_publisherFrame_Click"
                             Content="Nuevo"
-                            Style="{StaticResource BT_GraySimpe}" Click="bt_publisherFrame_Click" />
+                            Style="{StaticResource BT_GraySimpe}" />
                     </DockPanel>
                     <Border Style="{StaticResource BOR_ContBorder}">
                         <Frame x:Name="fra_publisher" />
@@ -102,6 +104,7 @@
             <Button
                 x:Name="bt_registerConfirm"
                 Margin="30"
+                Click="bt_registerConfirm_Click"
                 Style="{StaticResource BT_BlankNoBack}">
                 <TextBlock Padding="30,10" Text="Confirmar" />
             </Button>
