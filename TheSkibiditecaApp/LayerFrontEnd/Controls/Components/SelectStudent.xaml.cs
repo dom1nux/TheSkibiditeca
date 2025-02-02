@@ -31,7 +31,7 @@ namespace LayerFrontEnd.Controls.Components {
 
         private void dg_stuData_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             DataRowView info = (DataRowView)dg_stuData.SelectedItem;
-            tb_pubInfo.Text = info.Row[0].ToString();
+            tb_stuInfo.Text = info.Row[0].ToString();
         }
     }
 }

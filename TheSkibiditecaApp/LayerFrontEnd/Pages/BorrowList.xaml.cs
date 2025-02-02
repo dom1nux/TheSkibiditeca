@@ -31,6 +31,7 @@ namespace LayerFrontEnd.Pages {
 
         private void updateDataSource() {
             dg_borrows.ItemsSource = DataSource();
+            if(dg_borrows.Columns.Count != 0) dg_borrows.Columns[0].Visibility = Visibility.Hidden;
         }
 
         private void bt_newBorrow_Click(object sender, RoutedEventArgs e) {
@@ -59,6 +60,20 @@ namespace LayerFrontEnd.Pages {
         private void bt_completed_Click(object sender, RoutedEventArgs e) {
             DataSource = SkLogic.database.ViewCompleteBorrows;
             updateDataSource();
+        }
+
+        private void bt_returnConfirm_Click(object sender, RoutedEventArgs e) {
+            try {
+                DataRowView info = (DataRowView)dg_borrows.SelectedItem;
+                string id = info.Row[0].ToString()!;
+                SkLogic.database.ReturnedBorrow(id);
+            } catch(Exception ex) {
+                MessageBox.Show(ex.Message, "Error");
+            }
+        }
+
+        private void dg_borrows_Loaded(object sender, RoutedEventArgs e) {
+            dg_borrows.Columns[0].Visibility = Visibility.Hidden;
         }
     }
 }

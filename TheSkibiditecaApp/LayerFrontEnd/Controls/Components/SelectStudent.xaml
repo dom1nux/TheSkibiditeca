@@ -16,7 +16,7 @@
             SelectionChanged="dg_stuData_SelectionChanged"
             Style="{StaticResource DG_DataInfo}" />
         <TextBox
-            x:Name="tb_pubInfo"
+            x:Name="tb_stuInfo"
             Width="160"
             HorizontalAlignment="Left"
             IsReadOnly="True"

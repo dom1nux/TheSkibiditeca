@@ -60,26 +60,30 @@
                 x:Name="bt_allBorrows"
                 HorizontalAlignment="Left"
                 VerticalAlignment="TOp"
+                Click="bt_allBorrows_Click"
                 Content="Todos"
-                Style="{StaticResource BT_GreenBack}" Click="bt_allBorrows_Click" />
+                Style="{StaticResource BT_GreenBack}" />
             <Button
-                Margin="40,0"
                 x:Name="bt_pending"
+                Margin="40,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="TOp"
+                Click="bt_pending_Click"
                 Content="Pendientes"
-                Style="{StaticResource BT_GreenBack}" Click="bt_pending_Click" />
+                Style="{StaticResource BT_GreenBack}" />
             <Button
                 x:Name="bt_completed"
                 HorizontalAlignment="Left"
                 VerticalAlignment="TOp"
+                Click="bt_completed_Click"
                 Content="Completados"
-                Style="{StaticResource BT_GreenBack}" Click="bt_completed_Click" />
+                Style="{StaticResource BT_GreenBack}" />
         </StackPanel>
 
         <Border Margin="40,150,40,100" Style="{StaticResource BOR_ContBorder}">
             <DataGrid
                 x:Name="dg_borrows"
+                Loaded="dg_borrows_Loaded"
                 SelectionChanged="DataGrid_Selected"
                 Style="{StaticResource DG_DataInfo}" />
         </Border>
@@ -88,6 +92,7 @@
             Margin="40,0,0,40"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
+            Click="bt_returnConfirm_Click"
             Content="Confirmar devolución"
             IsEnabled="False"
             Style="{StaticResource BT_GreenBack}" />

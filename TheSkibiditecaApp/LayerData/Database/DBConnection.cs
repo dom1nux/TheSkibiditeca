@@ -58,6 +58,36 @@ namespace LayerData.Database {
             }
         }
 
+        public void RegisterAuhor(Author a) {
+            try {
+                conn.Open();
+                SqlCommand cmd = DBCommands.SPRegAuthor(a, conn);
+                cmd.ExecuteNonQuery();
+            } finally {
+                conn.Close();
+            }
+        }
+
+        public void RegisterPublisher(Publisher p) {
+            try {
+                conn.Open();
+                SqlCommand cmd = DBCommands.SPRegPublisher(p, conn);
+                cmd.ExecuteNonQuery();
+            } finally {
+                conn.Close();
+            }
+        }
+
+        public void RegisterStudent(Student s) {
+            try {
+                conn.Open();
+                SqlCommand cmd = DBCommands.SPRegStudent(s, conn);
+                cmd.ExecuteNonQuery();
+            } finally {
+                conn.Close();
+            }
+        }
+
         public DataView ViewBooks() {
             return LoadView("vwBookDetails");
         }

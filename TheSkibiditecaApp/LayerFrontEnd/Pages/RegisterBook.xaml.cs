@@ -32,7 +32,13 @@ namespace LayerFrontEnd.Pages {
                 fra_author.Navigate(new SelectAuthor());
                 bt_authorFrame.Content = "Nuevo";
             }else {
-                fra_author.Navigate(new RegisterAuthor());
+                RegisterAuthor ra = new();
+                ra.Finished += (sender, e) => {
+                    fra_author.Navigate(new SelectAuthor());
+                    bt_authorFrame.Content = "Nuevo";
+                    fraAuthorNew = !fraAuthorNew;
+                };
+                fra_author.Navigate(ra);
                 bt_authorFrame.Content = "Existente";
             }
 
@@ -44,7 +50,13 @@ namespace LayerFrontEnd.Pages {
                 fra_publisher.Navigate(new SelectPublisher());
                 bt_publisherFrame.Content = "Nuevo";
             } else {
-                fra_publisher.Navigate(new RegisterPublisher());
+                RegisterPublisher rp = new();
+                rp.Finished += (sender, e) => {
+                    fra_publisher.Navigate(new SelectPublisher());
+                    bt_publisherFrame.Content = "Nuevo";
+                    fraPublNew = !fraPublNew;
+                };
+                fra_publisher.Navigate(rp);
                 bt_publisherFrame.Content = "Existente";
             }
 

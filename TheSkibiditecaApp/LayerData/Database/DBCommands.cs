@@ -67,5 +67,40 @@ namespace LayerData.Database {
             SqlCommand cmd = new(consult, conn);
             return cmd;
         }
+
+        public static SqlCommand SPRegAuthor(Author a, SqlConnection conn) {
+            string consult = "EXEC [dbo].[spAddAuthor]" +
+                $"@FirstName = '{a.Name}'," +
+                $"@LastName = '{a.LastName}'";
+            SqlCommand cmd = new(consult, conn);
+            return cmd;
+        }
+
+        public static SqlCommand SPRegPublisher(Publisher p, SqlConnection conn) {
+            string consult = "EXEC [dbo].[spAddPublisher]" +
+                $"@Name = '{p.Name}', " +
+                $"@Address = '{p.Address}', " +
+                $"@PhoneNumber = '{p.Phone}', " +
+                $"@Email = '{p.Email}'";
+            SqlCommand cmd = new(consult, conn);
+            return cmd;
+        }
+
+        public static SqlCommand SPRegStudent(Student s, SqlConnection conn) {
+            string consult = "EXEC [dbo].[spAddStudent]" +
+                $"@StudentID = {s.StudentID}, " +
+                $"@Name = '{s.FirstName}', " +
+                $"@LastName = '{s.LastName}', " +
+                $"@Gender = '{s.Gender}', " +
+                $"@Major = '{s.Major}'";
+            SqlCommand cmd = new(consult, conn);
+            return cmd;
+        }
+
+        public static SqlCommand SPAddBook(Book b, SqlConnection conn) {
+            string consult = "EXEC [dbo].[spAddBook]";
+            SqlCommand cmd = new(consult, conn);
+            return cmd;
+        }
     }
 }

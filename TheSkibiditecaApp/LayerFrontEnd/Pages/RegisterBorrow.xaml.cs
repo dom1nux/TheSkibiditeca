@@ -1,4 +1,5 @@
-﻿using LayerFrontEnd.Controls.Components;
+﻿using LayerData;
+using LayerFrontEnd.Controls.Components;
 using LayerFrontEnd.Pages;
 using System;
 using System.Collections.Generic;
@@ -17,9 +18,10 @@ using System.Windows.Shapes;
 namespace TheSkibiditecaApp.Windows{
     public partial class BorrowBook : Page {
         private bool fraStuNew = false;
+        private SelectStudent st = new();
         public BorrowBook() { 
             InitializeComponent();
-            fra_student.Navigate(new SelectStudent());
+            fra_student.Navigate(st);
         }
 
         private void bt_back_Click(object sender, RoutedEventArgs e) {
@@ -28,14 +30,29 @@ namespace TheSkibiditecaApp.Windows{
 
         private void bt_sudentFrame_Click(object sender, RoutedEventArgs e) {
             if(fraStuNew) {
-                fra_student.Navigate(new SelectStudent());
+                fra_student.Navigate(st);
                 bt_sudentFrame.Content = "Nuevo";
             } else {
-                fra_student.Navigate(new RegisterStudent());
+                RegisterStudent rs = new();
+                rs.Finished += (sender, e) => {
+                    fra_student.Navigate(st);
+                    bt_sudentFrame.Content = "Nuevo";
+                    fraStuNew = !fraStuNew;
+                };
+                fra_student.Navigate(rs);
                 bt_sudentFrame.Content = "Existente";
             }
 
             fraStuNew = !fraStuNew;
+        }
+
+        private void bt_registerConfirm_Click(object sender, RoutedEventArgs e) {
+            try {
+                SkLogic.database.RegisterBorrow(st.tb_stuInfo.Text, sb.tb_bookInfo.Text, (DateTime)dp_idBook.SelectedDate!);
+                NavigationService.Navigate(new BorrowList());
+            } catch(Exception ex) {
+                MessageBox.Show(ex.Message, "Error");
+            }
         }
     }
 }

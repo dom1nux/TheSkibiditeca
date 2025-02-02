@@ -90,6 +90,7 @@
             <Button
                 x:Name="bt_confirm"
                 Margin="10,0"
+                Click="bt_confirm_Click"
                 Style="{StaticResource BT_BlankNoBack}">
                 <TextBlock
                     Padding="15,5"
