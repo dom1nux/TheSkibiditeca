@@ -58,6 +58,10 @@ namespace LayerData.Database {
             }
         }
 
+        public DataView ViewBooks() {
+            return LoadView("vwBookDetails");
+        }
+
         public DataView ViewBorrow() {
             return LoadView("vwAllBorrows");
         }

@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:TheSkibiditecaApp.Windows"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sc="clr-namespace:LayerFrontEnd.Controls.Components"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
     xmlns:uc="clr-namespace:LayerFrontEnd.Controls.Backgrounds"
     Title="BorrowBook"
@@ -17,6 +18,14 @@
         <!--  Background cuando  -->
         <uc:BCK_Manager />
         <!--  header  -->
+        <Button
+            x:Name="bt_registerConfirm"
+            Margin="60,15"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Style="{StaticResource BT_BlankNoBack}">
+            <TextBlock Padding="30,10" Text="Confirmar" />
+        </Button>
         <StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Button
@@ -29,14 +38,7 @@
             <TextBlock Style="{StaticResource TXT_Header2}" Text="Préstamo:" />
             <Border Style="{StaticResource BOR_ContBorder}">
                 <StackPanel Margin="0,0,150,0">
-                    <DockPanel HorizontalAlignment="Stretch">
-                        <TextBlock Style="{StaticResource TXT_Info}" Text="ID del libro" />
-                        <TextBox
-                            x:Name="tb_idBook"
-                            HorizontalAlignment="Right"
-                            Style="{StaticResource TB_Register}" />
-                    </DockPanel>
-                    <DockPanel Margin="0,15,0,0" HorizontalAlignment="Stretch">
+                    <DockPanel Margin="0,15,0,30" HorizontalAlignment="Stretch">
                         <TextBlock Style="{StaticResource TXT_Info}" Text="Fecha del préstamo" />
                         <DatePicker
                             x:Name="dp_idBook"
@@ -44,6 +46,7 @@
                             SelectedDate="{x:Static sys:DateTime.Now}"
                             Style="{StaticResource DP_DateReg}" />
                     </DockPanel>
+                    <sc:SelectBook />
                 </StackPanel>
             </Border>
             <DockPanel>
@@ -60,13 +63,6 @@
             <Border Style="{StaticResource BOR_ContBorder}">
                 <Frame x:Name="fra_student" />
             </Border>
-            <Button
-                x:Name="bt_registerConfirm"
-                Margin="100"
-                Style="{StaticResource BT_BlankNoBack}">
-                <TextBlock Padding="30,10" Text="Confirmar" />
-            </Button>
         </StackPanel>
-
     </Grid>
 </Page>

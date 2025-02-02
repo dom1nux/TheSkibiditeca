@@ -1,0 +1,25 @@
+﻿<UserControl
+    x:Class="LayerFrontEnd.Controls.Components.SelectBook"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:LayerFrontEnd.Controls.Components"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="190"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+    <StackPanel>
+        <DataGrid
+            x:Name="dg_bookData"
+            Height="160"
+            Loaded="dg_bookData_Loaded"
+            SelectionChanged="dg_bookData_SelectionChanged"
+            Style="{StaticResource DG_DataInfo}" />
+        <TextBox
+            x:Name="tb_bookInfo"
+            Width="160"
+            HorizontalAlignment="Left"
+            IsReadOnly="True"
+            Style="{StaticResource TB_Register}" />
+    </StackPanel>
+</UserControl>
