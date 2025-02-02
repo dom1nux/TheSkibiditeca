@@ -331,3 +331,19 @@ BEGIN
     END CATCH
 END;
 GO
+
+-- ===========================================================
+-- Descripción: Relaciona Autores (Author) con Libros (Book)
+-- ===========================================================
+CREATE OR ALTER PROCEDURE spConnectBookAuthor
+    @BookID INT,
+    @AuthorID INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Insert the relationship into the Authored table
+    INSERT INTO Authored (BookID, AuthorID)
+    VALUES (@BookID, @AuthorID);
+END;
+GO
