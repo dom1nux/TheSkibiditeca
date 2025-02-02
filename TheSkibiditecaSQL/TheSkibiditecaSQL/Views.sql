@@ -131,7 +131,8 @@ LEFT JOIN Publisher p ON b.PublisherID = p.PublisherID
 LEFT JOIN Authored au ON b.BookID = au.BookID
 LEFT JOIN Author a ON au.AuthorID = a.AuthorID
 WHERE (brw.BorrowStatus IS NULL OR brw.BorrowStatus != 'Por Devolver')
-GROUP BY 
+GROUP BY
+	b.BookID,
     b.Title,
     b.PublicationYear,
     b.ISBN,
