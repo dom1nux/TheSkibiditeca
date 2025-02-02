@@ -2,11 +2,12 @@ USE TheSkibiditeca;
 GO
 
 -- ================================================
--- Vistas para prestamos con devolución pendiente
+-- Vistas para prestamos con devoluciÃ³n pendiente
 -- ================================================
 CREATE OR ALTER VIEW vwPendingBorrows AS
 SELECT
-    bk.Title AS 'Título',
+    b.BorrowID,
+    bk.Title AS 'TÃ­tulo',
     s.FirstName + ' ' + s.LastName AS 'Estudiante',
     b.BorrowDate AS 'Fecha de Prestamo',
     b.BorrowStatus AS 'Estado de Prestamo'
@@ -21,7 +22,8 @@ GO
 -- =================================================
 CREATE OR ALTER VIEW vwReturnedBorrows AS
 SELECT
-    bk.Title AS 'Título',
+    b.BorrowID,
+    bk.Title AS 'TÃ­tulo',
     s.FirstName + ' ' + s.LastName AS 'Estudiante',
     b.BorrowDate AS 'Fecha de Prestamo',
     b.BorrowStatus AS 'Estado de Prestamo'
@@ -32,14 +34,15 @@ WHERE b.BorrowStatus = 'Devuelto';
 GO
 
 -- =====================================================
--- Vista para prestamos con devolución fuera de tiempo
+-- Vista para prestamos con devoluciÃ³n fuera de tiempo
 -- =====================================================
 CREATE OR ALTER VIEW vwOverdueBorrows AS
 SELECT
-    bk.Title AS 'Título',
+    b.BorrowID,
+    bk.Title AS 'TÃ­tulo',
     s.FirstName + ' ' + s.LastName AS 'Estudiante',
     b.BorrowDate AS 'Fecha de Prestamo',
-    DATEADD(DAY, 30, b.BorrowDate) AS 'Días Atrasados',
+    DATEADD(DAY, 30, b.BorrowDate) AS 'DÃ­as Atrasados',
     b.BorrowStatus AS 'Estado de Prestamo'
 FROM Borrow b
 JOIN Book bk ON b.BookID = bk.BookID
@@ -68,13 +71,13 @@ CREATE OR ALTER VIEW vwStudentBorrowHistory AS
 SELECT 
     s.StudentID AS 'ID',
     s.FirstName + ' ' + s.LastName AS 'Estudiante',
-    bk.Title AS 'Título',
+    bk.Title AS 'TÃ­tulo',
     bk.ISBN AS 'ISBN',
     b.BorrowDate AS 'Fecha de Prestamo',
     CASE 
         WHEN rt.ReturnDate IS NULL THEN 'Pendiente'
         ELSE CONVERT(VARCHAR(10), rt.ReturnDate, 103)  -- dd/mm/yyyy format
-    END AS 'Fecha de devolución'
+    END AS 'Fecha de devoluciÃ³n'
 FROM Student s
 JOIN Borrow b ON s.StudentID = b.StudentID
 JOIN Book bk ON b.BookID = bk.BookID
@@ -86,10 +89,11 @@ GO
 -- ============================
 CREATE OR ALTER VIEW vwBookDetails AS
 SELECT 
-    b.Title AS 'Título',
-    b.PublicationYear AS 'Año de Publicación',
+    b.BookID,
+    b.Title AS 'TÃ­tulo',
+    b.PublicationYear AS 'AÃ±o de PublicaciÃ³n',
     b.ISBN,
-    b.Pages AS 'Páginas',
+    b.Pages AS 'PÃ¡ginas',
     b.[Language] AS 'Idioma',
     p.[Name] AS 'Editorial',
     STRING_AGG(CONCAT(a.FirstName, ' ', a.LastName), ', ') AS 'Autores'
@@ -98,6 +102,7 @@ LEFT JOIN Publisher p ON b.PublisherID = p.PublisherID
 LEFT JOIN Authored au ON b.BookID = au.BookID
 LEFT JOIN Author a ON au.AuthorID = a.AuthorID
 GROUP BY 
+    b.BookID,
     b.Title,
     b.PublicationYear,
     b.ISBN,
@@ -142,7 +147,7 @@ SELECT
     LogID AS 'ID',
     TableName AS 'Tabla',
     Operation AS 'Operacion ',
-    ChangeInfo AS 'Información de Cambios',
+    ChangeInfo AS 'InformaciÃ³n de Cambios',
     CreatedAt AS 'Fecha'
 FROM OperationLog;
 GO
@@ -157,7 +162,7 @@ SELECT
     u.Username AS 'Usuario',
     l.FirstName AS 'Nombre',
     l.LastName AS 'Apellidos',
-    l.Address AS 'Dirección',
+    l.Address AS 'DirecciÃ³n',
     l.PhoneNumber AS 'Celular', 
     l.[Shift] AS 'Turno',
     CONVERT(VARCHAR(8), l.EnrollmentDate, 3) AS 'Fecha de Ingreso',            
@@ -186,7 +191,8 @@ GO
 -- Vista para autores
 -- ====================
 CREATE OR ALTER VIEW vwAuthorInfo AS
-SELECT 
+SELECT
+    AuthorID,
     FirstName + ' ' + LastName AS 'Nombre del Autor'
 FROM Author;
 GO

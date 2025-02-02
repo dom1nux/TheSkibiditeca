@@ -10,11 +10,13 @@
     mc:Ignorable="d">
     <StackPanel>
         <DataGrid
-            x:Name="dg_pubData"
+            x:Name="dg_stuData"
             Height="160"
+            Loaded="dg_stuData_Loaded"
+            SelectionChanged="dg_stuData_SelectionChanged"
             Style="{StaticResource DG_DataInfo}" />
         <TextBox
-            x:Name="tb_pubInfo"
+            x:Name="tb_stuInfo"
             Width="160"
             HorizontalAlignment="Left"
             IsReadOnly="True"

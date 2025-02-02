@@ -1,4 +1,5 @@
 ﻿using LayerData;
+using LayerData.Objects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,12 +20,23 @@ namespace LayerFrontEnd.Controls.Components {
     /// Lógica de interacción para RegisterAuthor.xaml
     /// </summary>
     public partial class RegisterAuthor : UserControl {
+        public event EventHandler? Finished;
         public RegisterAuthor() {
             InitializeComponent();
         }
 
         private void bt_confirm_Click(object sender, RoutedEventArgs e) {
-            
+            Author a = new() { 
+                Name = tb_authorName.Text,
+                LastName = tb_authorLastName.Text
+            };
+
+            try {
+                SkLogic.database.RegisterAuhor(a);
+                Finished!.Invoke(this, e);
+            } catch(Exception ex) {
+                MessageBox.Show(ex.Message, "Error");
+            }
         }
     }
 }

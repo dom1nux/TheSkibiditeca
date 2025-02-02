@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace LayerData.Objects {
     public class Publisher {
         public required string Name;
-        public required string Adress;
+        public required string Address;
         public required string Phone;
         public required string Email;
     }

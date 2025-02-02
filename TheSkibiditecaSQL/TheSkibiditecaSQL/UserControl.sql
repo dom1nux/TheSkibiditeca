@@ -1,7 +1,7 @@
 USE TheSkibiditeca;
 GO
 -- =============================================
--- Creacion de el login y usario para la aplicación
+-- Creacion de el login y usario para la aplicaciÃ³n
 -- =============================================
 CREATE LOGIN AppLogin
     WITH PASSWORD = 'YourSecurePassword!123';
@@ -39,6 +39,7 @@ GRANT EXECUTE ON OBJECT::spProcessReturn TO spExecutorRole;
 GRANT EXECUTE ON OBJECT::spAddBook TO spExecutorRole;
 GRANT EXECUTE ON OBJECT::spAddAuthor TO spExecutorRole;
 GRANT EXECUTE ON OBJECT::spAddPublisher TO spExecutorRole;
+GRANT EXECUTE ON OBJECT::spAddStudent TO spExecutorRole;
 GO
 
 GRANT SELECT ON OBJECT::vwPendingBorrows TO viewReaderRole;
@@ -56,13 +57,13 @@ GRANT SELECT ON OBJECT::vwAvailableBooks TO viewReaderRole;
 GO
 
 -- =============================================
--- Creación de usuario de prueba
+-- CreaciÃ³n de usuario de prueba
 -- =============================================
 DECLARE @Username NVARCHAR(50) = 'defaultUser';
 DECLARE @Password NVARCHAR(255) = 'Test@1234';
 DECLARE @Role NVARCHAR(15) = 'Admin';
 
--- Calcular el hash de la contraseña
+-- Calcular el hash de la contraseÃ±a
 DECLARE @PasswordHash VARBINARY(64) = HASHBYTES('SHA2_512', @Password);
 
 INSERT INTO [User] (Username, PasswordHash, [Role])

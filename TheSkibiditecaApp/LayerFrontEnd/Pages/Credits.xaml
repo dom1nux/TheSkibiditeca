@@ -35,7 +35,7 @@
                             Por desarrollar el FrontEnd de la app, creando los estilos y las páginas de la app, por implementar<LineBreak />
                             la base de datos en la app.<LineBreak />
                             <LineBreak />
-                            Comentario: "Oigan pibes estoy comiendo pan"</TextBlock>
+                            Comentario: "Oigan pibes estoy comiendo mortadela"</TextBlock>
                         <TextBlock
                             Padding="0,15,0,0"
                             Style="{StaticResource TXT_Info}"
@@ -44,15 +44,16 @@
                             Por desarrollar varias de las ventanas de registro de datos, también creando estilos y páginas<LineBreak />
                             para relacionar con la base de datos en la app.<LineBreak />
                             <LineBreak />
-                            Comentario: ""</TextBlock>
+                            Comentario: "Pan con pollo"</TextBlock>
                         <TextBlock
                             Padding="0,15,0,0"
                             Style="{StaticResource TXT_Info}"
                             Text="Karol Isac Perez (Alias LinoGuaton):" />
                         <TextBlock Padding="15" Style="{StaticResource TXT_Text}">
-                            Por ayudar con los estilos de la aplicación y parte del backend.<LineBreak />
+                            Por ayudar con los estilos de la aplicación y parte del backend, responsable de crear del modelo<LineBreak />
+                            Entidad - Relación de la base de datos.<LineBreak />
                             <LineBreak />
-                            Comentario: ""</TextBlock>
+                            Comentario: "Trikitrakatelas"</TextBlock>
                         <TextBlock
                             Padding="0,15,0,0"
                             Style="{StaticResource TXT_Info}"
@@ -75,7 +76,7 @@
                             Style="{StaticResource TXT_Info}"
                             Text="Fernando y Javier (Alias misho y ñaru):" />
                         <TextBlock Padding="15" Style="{StaticResource TXT_Text}">
-                            Por ser betaTesters de la aplicación.
+                            Por ser beta testers de la aplicación.
                         </TextBlock>
                     </StackPanel>
                 </Border>
