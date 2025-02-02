@@ -6,6 +6,7 @@ GO
 -- ================================================
 CREATE OR ALTER VIEW vwPendingBorrows AS
 SELECT
+    b.BorrowID,
     bk.Title AS 'Título',
     s.FirstName + ' ' + s.LastName AS 'Estudiante',
     b.BorrowDate AS 'Fecha de Prestamo',
@@ -21,6 +22,7 @@ GO
 -- =================================================
 CREATE OR ALTER VIEW vwReturnedBorrows AS
 SELECT
+    b.BorrowID,
     bk.Title AS 'Título',
     s.FirstName + ' ' + s.LastName AS 'Estudiante',
     b.BorrowDate AS 'Fecha de Prestamo',
@@ -36,6 +38,7 @@ GO
 -- =====================================================
 CREATE OR ALTER VIEW vwOverdueBorrows AS
 SELECT
+    b.BorrowID,
     bk.Title AS 'Título',
     s.FirstName + ' ' + s.LastName AS 'Estudiante',
     b.BorrowDate AS 'Fecha de Prestamo',
