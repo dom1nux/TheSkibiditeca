@@ -20,11 +20,9 @@ namespace LayerFrontEnd.Controls.Components {
     /// Lógica de interacción para SelectPublisher.xaml
     /// </summary>
     public partial class SelectPublisher : UserControl {
-        DataView datavw = SkLogic.database.ViewEditorials();
         public SelectPublisher() {
             InitializeComponent();
-            dg_pubData.Loaded += Dg_pubData_Loaded;
-            dg_pubData.ItemsSource = datavw;
+            dg_pubData.ItemsSource = SkLogic.database.ViewEditorials();
         }
 
         private void Dg_pubData_Loaded(object sender, RoutedEventArgs e) {
@@ -34,6 +32,10 @@ namespace LayerFrontEnd.Controls.Components {
         private void dg_pubData_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             DataRowView info = (DataRowView)dg_pubData.SelectedItem;
             tb_pubInfo.Text = info.Row[0].ToString();
+        }
+        
+        public void UpdateDataSource() {
+            dg_pubData.ItemsSource = SkLogic.database.ViewEditorials();
         }
     }
 }

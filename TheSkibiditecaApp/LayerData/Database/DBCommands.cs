@@ -60,10 +60,13 @@ namespace LayerData.Database {
             return cmd;
         }
 
-        public static SqlCommand SPReturnBorrow(string borrID, SqlConnection conn) {
+        public static SqlCommand SPReturnBorrow(string borrID, string bookState, SqlConnection conn) {
             string consult =
                 "EXEC [dbo].[spProcessReturn]" +
-                $"@BorrowID  = {borrID}";
+                $"@BorrowID  = {borrID}, " +
+                $"@BookState = '{bookState}', " +
+                $"@Observation = 'q we'";
+
             SqlCommand cmd = new(consult, conn);
             return cmd;
         }

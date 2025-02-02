@@ -31,7 +31,18 @@ namespace LayerFrontEnd.Pages {
 
         private void updateDataSource() {
             dg_borrows.ItemsSource = DataSource();
+            setReturnButtons(false);
             if(dg_borrows.Columns.Count != 0) dg_borrows.Columns[0].Visibility = Visibility.Hidden;
+        }
+
+        private void setReturnButtons(bool t) {
+            if(t) {
+                bt_returnConfirm.IsEnabled = true;
+                cb_bookStatus.Visibility = Visibility.Visible;
+            }else {
+                bt_returnConfirm.IsEnabled = false;
+                cb_bookStatus.Visibility = Visibility.Hidden;
+            }
         }
 
         private void bt_newBorrow_Click(object sender, RoutedEventArgs e) {
@@ -43,8 +54,11 @@ namespace LayerFrontEnd.Pages {
         }
 
         private void DataGrid_Selected(object sender, SelectionChangedEventArgs e) {
-            bt_returnConfirm.IsEnabled = true;
-            bt_deleteBorrow.IsEnabled = true;
+            DataRowView info = (DataRowView)dg_borrows.SelectedItem;
+            if(info != null) {
+                string status = info.Row[4].ToString()!;
+                setReturnButtons(status != "Devuelto");
+            } 
         }
 
         private void bt_allBorrows_Click(object sender, RoutedEventArgs e) {
@@ -64,9 +78,15 @@ namespace LayerFrontEnd.Pages {
 
         private void bt_returnConfirm_Click(object sender, RoutedEventArgs e) {
             try {
+                if(cb_bookStatus.SelectedIndex == -1) {
+                    MessageBox.Show("Ingresa el estado en el que se retornó el libro.");
+                    return;
+                }
                 DataRowView info = (DataRowView)dg_borrows.SelectedItem;
                 string id = info.Row[0].ToString()!;
-                SkLogic.database.ReturnedBorrow(id);
+                SkLogic.database.ReturnedBorrow(id, cb_bookStatus.Text);
+                updateDataSource();
+
             } catch(Exception ex) {
                 MessageBox.Show(ex.Message, "Error");
             }

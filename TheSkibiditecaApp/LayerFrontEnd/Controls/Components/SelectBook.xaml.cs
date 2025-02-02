@@ -38,5 +38,9 @@ namespace LayerFrontEnd.Controls.Components {
             DataRowView info = (DataRowView)dg_bookData.SelectedItem;
             tb_bookInfo.Text = info.Row[0].ToString();
         }
+
+        public void UpdateDataSource() {
+            dg_bookData.ItemsSource = SkLogic.database.ViewBooks();
+        }
     }
 }

@@ -48,10 +48,10 @@ namespace LayerData.Database {
             }
         }
 
-        public void ReturnedBorrow(string borrowId) {
+        public void ReturnedBorrow(string borrowId, string bookState) {
             try {
                 conn.Open();
-                SqlCommand cmd = DBCommands.SPReturnBorrow(borrowId, conn);
+                SqlCommand cmd = DBCommands.SPReturnBorrow(borrowId, bookState, conn);
                 cmd.ExecuteNonQuery();
             } finally {
                 conn.Close();
@@ -89,7 +89,7 @@ namespace LayerData.Database {
         }
 
         public DataView ViewBooks() {
-            return LoadView("vwBookDetails");
+            return LoadView("vwAvailableBooks");
         }
 
         public DataView ViewBorrow() {

@@ -37,5 +37,9 @@ namespace LayerFrontEnd.Controls.Components {
         private void dg_authorData_Loaded(object sender, RoutedEventArgs e) {
             dg_authorData.Columns[0].Visibility = Visibility.Hidden;
         }
+
+        public void UpdateDataSource() {
+            dg_authorData.ItemsSource = SkLogic.database.ViewAuthors();
+        }
     }
 }

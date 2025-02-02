@@ -26,11 +26,37 @@ namespace LayerFrontEnd.Controls.Components {
         }
 
         private void bt_confirm_Click(object sender, RoutedEventArgs e) {
+            TextBox[] texboxes = { tb_Names, tb_lastNames, tb_code};
+            foreach(TextBox texbox in texboxes) {
+                if(texbox.Text == "") {
+                    MessageBox.Show("Los cambos no deben estar vacios");
+                    return;
+                }
+            }
+
+            if(cb_gender.SelectedIndex == -1) {
+                MessageBox.Show("Selecciona un género.");
+                return;
+            }
+
+            if(cb_major.SelectedIndex == -1) {
+                MessageBox.Show("Selecciona una carrera.");
+                return;
+            }
+
+            try {
+                int.Parse(tb_code.Text);
+                if(tb_code.Text.Length != 8) throw new Exception();
+            } catch {
+                MessageBox.Show("El código tiene que tener 8 dígitos y ser numérico.");
+                return;
+            }
+
             Student s = new() {
                 FirstName = tb_Names.Text,
                 LastName = tb_lastNames.Text,
-                Gender = cb_gender.Text,
-                Major = cb_major.Text[0].ToString(),
+                Gender = cb_gender.Text[0].ToString(),
+                Major = cb_major.Text,
                 StudentID = tb_code.Text,
             };
 

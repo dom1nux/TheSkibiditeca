@@ -29,6 +29,24 @@ namespace LayerFrontEnd.Pages {
         }
 
         private void bt_registerConfirm_Click(object sender, RoutedEventArgs e) {
+            TextBox[] texboxes = { tb_address, tb_names, tb_lastNames, tb_phoneNumber };
+            foreach(TextBox texbox in texboxes) {
+                if(texbox.Text == "") {
+                    MessageBox.Show("Los cambos no deben estar vacios");
+                    return;
+                }
+            }
+
+            if(cb_role.SelectedIndex == -1 ) {
+                MessageBox.Show("Selecciona un rol.");
+                return;
+            }
+
+            if(cb_shift.SelectedIndex == -1) {
+                MessageBox.Show("Selecciona un turno.");
+                return;
+            }
+
             Librarian lib = new() {
                 Address = tb_address.Text,
                 FirstName = tb_names.Text,

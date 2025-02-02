@@ -26,6 +26,14 @@ namespace LayerFrontEnd.Controls.Components{
         }
 
         private void bt_confirm_Click(object sender, RoutedEventArgs e) {
+            TextBox[] texboxes = {tb_editAdress, tb_editMail, tb_editName, tb_editPhone };
+            foreach(TextBox texbox in texboxes) { 
+                if(texbox.Text == "") {
+                    MessageBox.Show("Los cambos no deben estar vacios");
+                    return;
+                }
+            }
+
             Publisher p = new() {
                 Name = tb_editName.Text,
                 Address = tb_editAdress.Text,

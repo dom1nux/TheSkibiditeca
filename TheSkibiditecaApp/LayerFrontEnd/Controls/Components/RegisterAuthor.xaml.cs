@@ -26,6 +26,9 @@ namespace LayerFrontEnd.Controls.Components {
         }
 
         private void bt_confirm_Click(object sender, RoutedEventArgs e) {
+            if(tb_authorName.Text == "" || tb_authorLastName.Text == "") {
+                MessageBox.Show("Los cambos no deben estar vacios.", "Error");
+            }
             Author a = new() { 
                 Name = tb_authorName.Text,
                 LastName = tb_authorLastName.Text

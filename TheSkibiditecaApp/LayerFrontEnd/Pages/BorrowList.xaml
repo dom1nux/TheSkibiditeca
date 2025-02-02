@@ -94,15 +94,18 @@
             VerticalAlignment="Bottom"
             Click="bt_returnConfirm_Click"
             Content="Confirmar devolución"
-            IsEnabled="False"
+            IsEnabled="True"
             Style="{StaticResource BT_GreenBack}" />
-        <Button
-            x:Name="bt_deleteBorrow"
-            Margin="300,0,0,40"
+        <ComboBox
+            x:Name="cb_bookStatus"
+            Width="200"
+            Margin="310,0,0,40"
             HorizontalAlignment="Left"
             VerticalAlignment="Bottom"
-            Content="Eliminar"
-            IsEnabled="False"
-            Style="{StaticResource BT_GreenBack}" />
+            Style="{StaticResource CB_Register}">
+            <ComboBoxItem Content="Bueno" />
+            <ComboBoxItem Content="Regular" />
+            <ComboBoxItem Content="Malo" />
+        </ComboBox>
     </Grid>
 </Page>

@@ -30,11 +30,6 @@ namespace LayerFrontEnd.Pages {
 
         private void bt_updateUsers_Click(object sender, RoutedEventArgs e) {
             dg_users.ItemsSource = SkLogic.database.ViewLibrarians();
-            bt_deleteUser.IsEnabled = false;
-        }
-
-        private void dg_users_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            bt_deleteUser.IsEnabled = true;
         }
     }
 }

@@ -56,18 +56,7 @@
         </Button>
 
         <Border Margin="40,130,40,100" Style="{StaticResource BOR_ContBorder}">
-            <DataGrid
-                x:Name="dg_users"
-                SelectionChanged="dg_users_SelectionChanged"
-                Style="{StaticResource DG_DataInfo}" />
+            <DataGrid x:Name="dg_users" Style="{StaticResource DG_DataInfo}" />
         </Border>
-        <Button
-            x:Name="bt_deleteUser"
-            Margin="40,0,0,40"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Bottom"
-            Content="Eliminar"
-            IsEnabled="False"
-            Style="{StaticResource BT_GreenBack}" />
     </Grid>
 </Page>

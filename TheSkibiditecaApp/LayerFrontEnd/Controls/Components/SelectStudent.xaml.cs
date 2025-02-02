@@ -33,5 +33,9 @@ namespace LayerFrontEnd.Controls.Components {
             DataRowView info = (DataRowView)dg_stuData.SelectedItem;
             tb_stuInfo.Text = info.Row[0].ToString();
         }
+
+        public void updateDataSource() {
+            dg_stuData.ItemsSource = SkLogic.database.ViewStudents();
+        }
     }
 }

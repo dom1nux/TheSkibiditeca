@@ -35,6 +35,7 @@ namespace TheSkibiditecaApp.Windows{
             } else {
                 RegisterStudent rs = new();
                 rs.Finished += (sender, e) => {
+                    st.updateDataSource();
                     fra_student.Navigate(st);
                     bt_sudentFrame.Content = "Nuevo";
                     fraStuNew = !fraStuNew;
@@ -48,6 +49,10 @@ namespace TheSkibiditecaApp.Windows{
 
         private void bt_registerConfirm_Click(object sender, RoutedEventArgs e) {
             try {
+                if(sb.tb_bookInfo.Text == "" || sb.tb_bookInfo.Text == "") {
+                    MessageBox.Show("Selecciona todos los elementos pes.");
+                    return;
+                }
                 SkLogic.database.RegisterBorrow(st.tb_stuInfo.Text, sb.tb_bookInfo.Text, (DateTime)dp_idBook.SelectedDate!);
                 NavigationService.Navigate(new BorrowList());
             } catch(Exception ex) {
