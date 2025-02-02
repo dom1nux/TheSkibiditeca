@@ -22,6 +22,12 @@
     </LogicalFolder>
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
+        <FileNode Name="Backups.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:161.132.37.46,1433:False:sa</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>161.132.37.46,1433</AssociatedConnSrvName>
+          <AssociatedConnUserName>sa</AssociatedConnUserName>
+          <FullPath>Backups.sql</FullPath>
+        </FileNode>
         <FileNode Name="DropDB.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:161.132.37.46,1433:False:sa</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>161.132.37.46,1433</AssociatedConnSrvName>
@@ -39,12 +45,6 @@
           <AssociatedConnSrvName>161.132.37.46,1433</AssociatedConnSrvName>
           <AssociatedConnUserName>sa</AssociatedConnUserName>
           <FullPath>Schema.sql</FullPath>
-        </FileNode>
-        <FileNode Name="SQLQuery1.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:161.132.37.46,1433:False:sa</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>161.132.37.46,1433</AssociatedConnSrvName>
-          <AssociatedConnUserName>sa</AssociatedConnUserName>
-          <FullPath>SQLQuery1.sql</FullPath>
         </FileNode>
         <FileNode Name="Triggers.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:161.132.37.46,1433:False:sa</AssociatedConnectionMoniker>
