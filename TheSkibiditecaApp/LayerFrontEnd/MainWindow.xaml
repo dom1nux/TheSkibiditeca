@@ -9,6 +9,7 @@
     Width="1366"
     Height="768"
     Closed="Window_Closed"
+    WindowState="Maximized"
     mc:Ignorable="d">
     <Frame Name="fra_main" NavigationUIVisibility="Hidden" />
 </Window>
