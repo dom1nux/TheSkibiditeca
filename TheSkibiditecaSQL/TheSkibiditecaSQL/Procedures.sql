@@ -307,7 +307,7 @@ CREATE OR ALTER PROCEDURE spAddStudent
     @StudentID INT,
     @Name NVARCHAR(255),
     @LastName NVARCHAR(255),
-    @Gender NVARCHAR(5),
+    @Gender char(1),
     @Major NVARCHAR(255)
 AS
 BEGIN
